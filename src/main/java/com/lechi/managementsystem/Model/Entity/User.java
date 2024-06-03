@@ -22,11 +22,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String firstname;
-    private String lastname;
+    private String fullname;
     private LocalDate dob;
     private String email;
     private String password;
+    private String address;
+
 
     @Enumerated(EnumType.STRING)
     private UserRole userRole;

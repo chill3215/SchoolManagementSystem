@@ -21,7 +21,7 @@
           <i class="fa-solid fa-chalkboard-user"></i>
           <span>Manage Teachers</span>
         </a>
-        <a href="">
+        <a href="/teacher/form">
           <i class="fa-solid fa-chalkboard-user"></i>
           <span>Add Teachers</span>
         </a>
@@ -29,7 +29,7 @@
           <i class="fa-solid fa-users"></i>
           <span>Manage Students</span>
         </a>
-        <a href="">
+        <a href="/student/form">
           <i class="fa-solid fa-house-user"></i>
           <span>Add Students</span>
         </a>
@@ -46,7 +46,7 @@
       <div class="page-content">
         <h1>Admin Portal</h1>
         <div class="message">
-          <h2 th:text="'hi '+${user.userRole}+' '+ ${user.firstname} + ' ' + ${user.lastname}"></h2>
+          <h2 th:text="'hi '+${user.userRole}+' '+ ${user.fullname}"></h2>
 
         </div>
         <div class="content-box">

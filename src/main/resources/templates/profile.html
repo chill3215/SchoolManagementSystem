@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<div class="container">
+    <h1>Information of Student</h1>
+    <input type="hidden" th:value="${user.id}">
+    <div class="fields_container">
+        <label>Full name: </label>
+        <text th:text="${user.fullname}"></text>
+
+        <label> Date of birth:</label>
+        <text th:text="${user.dob}"></text>
+
+        <label>Email:</label>
+        <text th:text="${user.email}"></text>
+
+        <label>Phone number:</label>
+        <text th:text="${user.phonenumber}"></text>
+
+
+    </div>
+    <form action="#" method="get" th:action="@{/teacher/updateStudent/{id}(id=${user.id})}"><button class="button button_update" >UPDATE</button></form>
+    <form action="#" th:action="@{/teacher/allStudents}" method="get"><button>SEE ALL STUDENTS</button></form>
+    <form action="#" method="post" th:action="@{/teacher/user/{id}(id=${user.id})}">
+        <input type="hidden" name="_method" value="delete">
+        <button>DELETE</button>
+    </form>
+
+
+
+</div>
 </body>
 </html>

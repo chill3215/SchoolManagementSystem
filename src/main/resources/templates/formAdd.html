@@ -5,6 +5,74 @@
     <title>Title</title>
 </head>
 <body>
+<div class="container">
+    <h1 th:text="'Register new '+${user.userRole}"> </h1>
+    <form action="#" method="post" th:action="@{/{userRole}(userRole=${user.userRole.toString().toLowerCase()})}" th:object="${user}">
+
+        <div class="fields_container">
+            <div class="general">
+                <div class="input-box">
+                    <label>
+                        <i></i>
+                        <input type="text" name="fullname" placeholder="Fullname" th:field="*{fullname}">
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label>
+                        <i></i>
+                        <input type="date" name="dob" placeholder="Date Of Birth" th:fied="*{dob}">
+                    </label>
+                </div>
+<!--                <div class="input-box">-->
+<!--                    <label th:if="${studentId}">-->
+<!--                        <i></i>-->
+<!--                        <input type="text" name="studentId"  placeholder="Student ID" th:field="*{studentId}">-->
+<!--                    </label>-->
+<!--                    <label th:if="${teacherId}">-->
+<!--                        <i></i>-->
+<!--                        <input type="text" name="teacherId"  placeholder="Teacher ID" th:field="*{teacherId}">-->
+<!--                    </label>-->
+
+<!--                </div>-->
+                <div class="input-box">
+                    <label>
+                        <select name="gender" th:field="*{gender}" required>
+                            <option value="" disabled selected hidden class="select-placeholder">gender</option>
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                            <option value="NOT_SPECIFIED">Not specified</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="contact">
+                <div class="input-box">
+                    <label>
+                        <i></i>
+                        <input type="email" name="email" placeholder="Email" th:field="*{email}">
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label>
+                        <i></i>
+                        <input type="password" name="password" placeholder="Password" th:field="*{password}">
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label>
+                        <i></i>
+                        <input type="text" name="phonenumber" placeholder="Phone number" th:field="*{phonenumber}">
+                    </label>
+                </div>
+            </div>
+
+
+        </div>
+        <button>Submit</button>
+    </form>
+
+
+</div>
 
 </body>
 </html>

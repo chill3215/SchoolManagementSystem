@@ -21,8 +21,7 @@ public class AdminServiceImpl implements AdminService{
         User adminFound = userService.findByUserRole(UserRole.ADMIN);
         if (adminFound == null) {
             User admin = User.builder()
-                    .firstname("admin")
-                    .lastname("account")
+                    .fullname("admin")
                     .email("admin@gmail.com")
                     .password("admin")
                     .userRole(UserRole.ADMIN)

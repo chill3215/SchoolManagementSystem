@@ -25,14 +25,5 @@ public class HomepageController {
         return "login";
     }
 
-    @GetMapping("/authen")
-    public String authenticate(@ModelAttribute User user, Model model){
-        User foundUser = userService.findByEmail(user.getEmail());
-        if (foundUser.getPassword().equals(user.getPassword())
-                && foundUser.getUserRole().equals(user.getUserRole())) {
-            model.addAttribute("user", foundUser);
-            return (foundUser.getUserRole() == UserRole.ADMIN)? "user":"error";
-        }
-        return "error";
-    }
+
 }
