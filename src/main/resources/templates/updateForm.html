@@ -1,10 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<div class="container">
+    <h1>Change information form</h1>
+    <form action="#" method="post" th:action="@{/{userRole}/{id}/updateForm(userRole=${user.userRole},id=${user.id})}" th:object="${user}">
+        <input type="hidden" th:value="${user.id}" th:field="*{id}">
+        <div class="fields_container">
+            <label>Full Name: </label>
+            <input type="text" name="firstname" th:value="${user.fullname}" th:field="*{fullname}">
+
+
+            <label>Date of birth:</label>
+            <input type="date" name="dob" th:value="${user.dob}" th:field="*{dob}">
+
+            <label>Email:</label>
+            <input type="email" name="email" th:value="${user.email}" th:field="*{email}">
+
+            <label for="class">class:</label>
+            <input type="Klasse" name="klasse">
+
+        </div>
+        <button>Submit</button>
+    </form>
+
+</div>
 </body>
 </html>

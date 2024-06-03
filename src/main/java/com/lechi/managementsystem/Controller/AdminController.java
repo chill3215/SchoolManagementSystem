@@ -2,7 +2,7 @@ package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
-import com.lechi.managementsystem.Service.UserService;
+import com.lechi.managementsystem.Service.UserMainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class AdminController {
 
     @Autowired
-    private UserService userService;
+    private UserMainService userService;
 
     @GetMapping("/authen")
     public String authenticate(@ModelAttribute User user, Model model){

@@ -30,6 +30,7 @@ public class Teacher {
     private Gender gender;
     private String phonenumber;
     private String teacherId;
+    private String address;
 
     @Enumerated(EnumType.STRING)
     private UserRole userRole = UserRole.TEACHER;

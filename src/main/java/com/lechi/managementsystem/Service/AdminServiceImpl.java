@@ -2,7 +2,6 @@ package com.lechi.managementsystem.Service;
 
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
-import com.lechi.managementsystem.Repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,7 @@ public class AdminServiceImpl implements AdminService{
 
 
     @Autowired
-    private UserService userService;
+    private UserMainService userService;
 
 
 
@@ -26,7 +25,7 @@ public class AdminServiceImpl implements AdminService{
                     .password("admin")
                     .userRole(UserRole.ADMIN)
                     .build();
-            userService.addUser(admin);
+            userService.add(admin);
         }
     }
 }

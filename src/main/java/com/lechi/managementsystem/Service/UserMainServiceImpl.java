@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserMainServiceImpl implements UserMainService {
 
     @Autowired
     private UserRepository userRepository;
     @Override
-    public List<User> findUsersByUserRole(UserRole userRole) {
-        return userRepository.findUsersByUserRole(userRole);
+    public List<User> getAll() {
+        return userRepository.findAll();
     }
 
     @Override
@@ -30,9 +30,34 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addUser(User user) {
+    public User getById(Integer id) {
+        return userRepository.findById(id).get();
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public void update(User updatedUser) {
+        User existingUser = getById(updatedUser.getId());
+        if(existingUser!=null){
+            existingUser.setFullname(updatedUser.getFullname());
+            existingUser.setEmail(updatedUser.getEmail());
+            existingUser.setDob(updatedUser.getDob());
+           userRepository.save(existingUser);
+        }
+
+
+    }
+
+    @Override
+    public void add(User user) {
         userRepository.save(user);
     }
+
+
 
 
 }

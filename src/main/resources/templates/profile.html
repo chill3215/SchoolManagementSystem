@@ -23,9 +23,9 @@
 
 
     </div>
-    <form action="#" method="get" th:action="@{/teacher/updateStudent/{id}(id=${user.id})}"><button class="button button_update" >UPDATE</button></form>
-    <form action="#" th:action="@{/teacher/allStudents}" method="get"><button>SEE ALL STUDENTS</button></form>
-    <form action="#" method="post" th:action="@{/teacher/user/{id}(id=${user.id})}">
+    <form action="#" method="get" th:action="@{/{userRole}/{id}/updateForm(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}"><button class="button button_update" >UPDATE</button></form>
+    <form action="#" th:action="@{/{userRole}/all(userRole=${user.userRole.toString().toLowerCase()})}" method="get"><button>SEE ALL STUDENTS</button></form>
+    <form action="#" method="post" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()}, id=${user.id})}">
         <input type="hidden" name="_method" value="delete">
         <button>DELETE</button>
     </form>

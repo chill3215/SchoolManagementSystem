@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <div>
+        <body>
+        <ul class="list_holder">
+            <li  class="list_ele" th:each="user : ${users}">
+                <span th:text="${user.fullname}"></span>
+                <form action="#" method="get" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}">
+                    <button class="button button_see" >SEE DETAILS</button>
+                </form>
+                <form action="#" method="post" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()}, id=${user.id})}">
+                    <input type="hidden" name="_method" value="delete">
+                    <button>DELETE</button>
+                </form>
+
+            </li>
+            <form action="/teacher/addStudent" method="get"><button class="button button_add">ADD</button></form>
+        </ul>
+        </body>
+    </div>
+
 </body>
 </html>
