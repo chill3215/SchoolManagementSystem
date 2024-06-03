@@ -1,2 +1,6 @@
-package com.lechi.managementsystem.Service;public interface AdminService {
+package com.lechi.managementsystem.Service;
+
+public interface AdminService {
+
+    public void createAdmin();
 }

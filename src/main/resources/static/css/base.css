@@ -1,0 +1,30 @@
+
+:root{
+    --theme-color: #7fdbbb;
+    --background-color: #ebecf0;
+    --button-change-color: linear-gradient(45deg, RGB(36 252 201), rgb(203,243,111));
+}
+*{
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    line-height: 2rem;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background-color);
+    margin: 0;
+}
+
+.fullscreen{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
