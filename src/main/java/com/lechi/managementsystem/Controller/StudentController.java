@@ -2,6 +2,7 @@ package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Model.Entity.Student;
 import com.lechi.managementsystem.Model.Entity.Teacher;
+import com.lechi.managementsystem.Model.Enum.UserRole;
 import com.lechi.managementsystem.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,19 +18,22 @@ public class StudentController {
     @GetMapping("/form")
     public String getFormStudent(Model model){
         model.addAttribute("user", new Student());
-//        model.addAttribute("studentId", true);
+        model.addAttribute("role", UserRole.STUDENT);
         return "formAdd";
     }
 
     @GetMapping("/all")
     public String getAllStudent(Model model){
         model.addAttribute("users", studentService.getAll());
+        model.addAttribute("role", UserRole.STUDENT);
         return "list";
     }
 
     @PostMapping("")
-    public void addStudent(@ModelAttribute Student student){
+    public String addStudent(@ModelAttribute Student student){
+
         studentService.add(student);
+        return "redirect:/student/all";
     }
 
     @GetMapping("/{id}")
@@ -47,10 +51,10 @@ public class StudentController {
         return "updateForm";
     }
 
-    @PutMapping("/{id}")
+    @PostMapping("/{id}/updated")
     public String saveUpdatedStudent(@PathVariable("id") Integer id,@ModelAttribute Student updatedStudent, Model model){
         studentService.update(updatedStudent);
-        return "redirect:/teacher/seeStudent/"+id;
+        return "redirect:/student/"+id;
     }
 
     @PostMapping("{id}")

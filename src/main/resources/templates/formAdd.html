@@ -6,9 +6,8 @@
 </head>
 <body>
 <div class="container">
-    <h1 th:text="'Register new '+${user.userRole}"> </h1>
-    <form action="#" method="post" th:action="@{/{userRole}(userRole=${user.userRole.toString().toLowerCase()})}" th:object="${user}">
-
+    <h1 th:text="'Register new '+${role}"> </h1>
+    <form action="#" method="post" th:action="@{/{userRole}(userRole=${role.toString().toLowerCase()})}" th:object="${user}">
         <div class="fields_container">
             <div class="general">
                 <div class="input-box">

@@ -22,6 +22,7 @@ public class TeacherServiceImpl implements TeacherService{
 
     @Override
     public void add(Teacher teacher) {
+        teacher.setUserRole(UserRole.TEACHER);
         teacherRepository.save(teacher);
     }
 

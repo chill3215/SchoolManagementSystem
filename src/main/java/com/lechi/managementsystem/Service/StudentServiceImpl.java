@@ -25,6 +25,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public void add(Student student) {
+        student.setUserRole(UserRole.STUDENT);
         studentRepository.save(student);
     }
 

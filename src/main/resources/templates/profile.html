@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Information of Student</h1>
+    <h1 th:text="'Information of '+ ${role}"></h1>
     <input type="hidden" th:value="${user.id}">
     <div class="fields_container">
         <label>Full name: </label>

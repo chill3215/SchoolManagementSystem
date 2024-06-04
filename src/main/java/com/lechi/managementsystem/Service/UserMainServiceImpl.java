@@ -13,7 +13,7 @@ import java.util.List;
 public class UserMainServiceImpl implements UserMainService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository<User> userRepository;
     @Override
     public List<User> getAll() {
         return userRepository.findAll();
@@ -54,6 +54,7 @@ public class UserMainServiceImpl implements UserMainService {
 
     @Override
     public void add(User user) {
+
         userRepository.save(user);
     }
 

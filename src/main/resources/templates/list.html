@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
     <div>
@@ -19,7 +20,7 @@
                 </form>
 
             </li>
-            <form action="/teacher/addStudent" method="get"><button class="button button_add">ADD</button></form>
+            <form action="#" method="get" th:action="@{/{userRole}/form(userRole=${role.toString().toLowerCase()})}"><button class="button button_add">ADD</button></form>
         </ul>
         </body>
     </div>

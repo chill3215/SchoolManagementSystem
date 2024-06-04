@@ -2,6 +2,7 @@ package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Model.Entity.Student;
 import com.lechi.managementsystem.Model.Entity.Teacher;
+import com.lechi.managementsystem.Model.Enum.UserRole;
 import com.lechi.managementsystem.Service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ public class TeacherController {
     @GetMapping("/form")
     public String getFormTeacher(Model model){
         model.addAttribute("user", new Teacher());
+        model.addAttribute("role", UserRole.TEACHER);
 //        model.addAttribute("teacherId", true);
         return "formAdd";
     }
@@ -24,12 +26,15 @@ public class TeacherController {
     @GetMapping("/all")
     public String getAllTeacher(Model model){
         model.addAttribute("users", teacherService.getAll());
+        model.addAttribute("role", UserRole.TEACHER);
         return "list";
     }
 
     @PostMapping("")
-    public void addTeacher(@ModelAttribute Teacher teacher){
+    public String addTeacher(@ModelAttribute Teacher teacher){
+
         teacherService.add(teacher);
+        return "redirect:/teacher/all";
     }
 
     @GetMapping("/{id}")
@@ -47,10 +52,10 @@ public class TeacherController {
         return "updateForm";
     }
 
-    @PutMapping("/{id}")
+    @PostMapping("/{id}/updated")
     public String saveUpdatedTeacher(@PathVariable("id") Integer id, @ModelAttribute Teacher updatedTeacher, Model model){
         teacherService.update(updatedTeacher);
-        return "redirect:/teacher/seeTeacher/"+id;
+        return "redirect:/teacher/"+id;
     }
 
     @PostMapping("{id}")

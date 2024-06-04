@@ -17,4 +17,5 @@ public interface MainService<T> {
     public void deleteById(Integer id);
 
     public void update(T t);
+
 }

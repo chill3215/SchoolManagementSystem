@@ -4,31 +4,23 @@ import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 
+
 @Entity
-@Table(name = "students")
 @Data
-@AllArgsConstructor
+@Table(name = "students")
 @NoArgsConstructor
-@Builder
-public class Student {
+@AllArgsConstructor
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class Student extends User {
+
+    private String major;
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    private String fullname;
-    private LocalDate dob;
-    private String email;
-    private String password;
-    private Gender gender;
-    private String phonenumber;
-    private String studentId;
 
 
-    @Enumerated(EnumType.STRING)
-    private UserRole userRole=UserRole.STUDENT;
 }
