@@ -15,7 +15,7 @@ public class FrequentRequestController {
 
 
     public static String mainPage(Model model, UserRole userRole){
-        return "user";
+        return "portal";
     }
 
 

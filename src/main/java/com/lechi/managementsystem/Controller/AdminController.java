@@ -21,7 +21,7 @@ public class AdminController {
         if (foundUser.getPassword().equals(user.getPassword())
                 && foundUser.getUserRole().equals(user.getUserRole())) {
             model.addAttribute("user", foundUser);
-            return FrequentRequestController.mainPage(model, UserRole.ADMIN);
+            return FrequentRequestController.mainPage(model, foundUser.getUserRole());
         }
         return "error";
     }

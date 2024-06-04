@@ -15,13 +15,13 @@
         <header>Menu</header>
         <a href="">
           <i class="fa-solid fa-house-user"></i>
-          <span>Admin Portal</span>
+          <span th:text="${user.userRole}+' portal'"></span>
         </a>
-        <a href="/teacher/all">
+        <a href="/teacher/all" th:if="${user.userRole.toString()=='ADMIN'}">
           <i class="fa-solid fa-chalkboard-user"></i>
           <span>Manage Teachers</span>
         </a>
-        <a href="/teacher/form">
+        <a href="/teacher/form" th:if="${user.userRole.toString()=='ADMIN'}">
           <i class="fa-solid fa-chalkboard-user"></i>
           <span>Add Teachers</span>
         </a>
@@ -29,7 +29,7 @@
           <i class="fa-solid fa-users"></i>
           <span>Manage Students</span>
         </a>
-        <a href="/student/form">
+        <a href="/student/form" th:if="${user.userRole.toString()!='STUDENT'}">
           <i class="fa-solid fa-house-user"></i>
           <span>Add Students</span>
         </a>
@@ -44,9 +44,9 @@
 
       </div>
       <div class="page-content">
-        <h1>Admin Portal</h1>
+        <h1 th:text="${user.userRole}"></h1>
         <div class="message">
-          <h2 th:text="'hi '+${user.userRole}+' '+ ${user.fullname}"></h2>
+          <h2 th:text="'Welcome back '+${user.userRole}+' '+ ${user.fullname}"></h2>
 
         </div>
         <div class="content-box">
