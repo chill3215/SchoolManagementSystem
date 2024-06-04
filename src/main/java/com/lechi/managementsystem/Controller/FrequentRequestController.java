@@ -16,23 +16,6 @@ public class FrequentRequestController {
 
 
 
-//    public static String mainPage(Model model, UserRole userRole){
-//        return "portal";
-//    }
-
-//    @GetMapping("/portal")
-//    public static String loginUser(HttpServletRequest request, User user, Model model) {
-//        HttpSession session = request.getSession();
-//        session.setAttribute("currentUser", user);
-//        return "portal";
-//    }
-//
-//    public User getCurrentUser(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        return (User) session.getAttribute("currentUser");
-//    }
-
-
 
 
 
