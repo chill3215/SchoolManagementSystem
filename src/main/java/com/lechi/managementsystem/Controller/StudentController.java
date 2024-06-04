@@ -2,8 +2,11 @@ package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Model.Entity.Student;
 import com.lechi.managementsystem.Model.Entity.Teacher;
+import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import com.lechi.managementsystem.Service.StudentService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +15,11 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/student")
 public class StudentController {
+
+//    public User getCurrentUser(HttpServletRequest request) {
+//        HttpSession session = request.getSession();
+//        return (User) session.getAttribute("currentUser");
+//    }
 
     @Autowired
     StudentService studentService;
@@ -23,9 +31,11 @@ public class StudentController {
     }
 
     @GetMapping("/all")
-    public String getAllStudent(Model model){
+    public String getAllStudent(@SessionAttribute("currentUser")User user, Model model){
         model.addAttribute("users", studentService.getAll());
         model.addAttribute("role", UserRole.STUDENT);
+        model.addAttribute("currentUser", user);
+//        User currentUser = getCurrentUser()
         return "list";
     }
 
@@ -37,9 +47,10 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public String seeDetails(@PathVariable("id") Integer id, Model model){
+    public String seeDetails(@SessionAttribute("currentUser") User user, @PathVariable("id") Integer id, Model model){
         Student foundStudent=studentService.getById(id);
         model.addAttribute("user", foundStudent);
+        model.addAttribute("currentUser", user);
         return "profile";
 
     }

@@ -14,13 +14,13 @@
                 <form action="#" method="get" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}">
                     <button class="button button_see" >SEE DETAILS</button>
                 </form>
-                <form action="#" method="post" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()}, id=${user.id})}">
+                <form action="#" method="post" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()}, id=${user.id})}" th:if="${currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=role}">
                     <input type="hidden" name="_method" value="delete">
                     <button>DELETE</button>
                 </form>
 
             </li>
-            <form action="#" method="get" th:action="@{/{userRole}/form(userRole=${role.toString().toLowerCase()})}">
+            <form action="#" method="get" th:action="@{/{userRole}/form(userRole=${role.toString().toLowerCase()})}" th:if="${currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=role}">
                 <button class="button button_add">ADD</button>
             </form>
         </ul>

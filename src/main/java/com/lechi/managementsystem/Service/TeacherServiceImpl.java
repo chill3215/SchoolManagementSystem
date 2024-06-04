@@ -53,4 +53,9 @@ public class TeacherServiceImpl implements TeacherService{
 
 
     }
+
+    @Override
+    public long count() {
+        return teacherRepository.count();
+    }
 }

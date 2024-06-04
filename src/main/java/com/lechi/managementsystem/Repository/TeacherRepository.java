@@ -7,6 +7,6 @@ public interface TeacherRepository extends JpaRepository<Teacher, Integer> {
 
     public Teacher getById(Integer id);
 
-
+    public long count();
 
 }

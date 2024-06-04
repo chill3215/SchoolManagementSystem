@@ -2,6 +2,7 @@ package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Model.Entity.Student;
 import com.lechi.managementsystem.Model.Entity.Teacher;
+import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import com.lechi.managementsystem.Service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,10 @@ public class TeacherController {
     }
 
     @GetMapping("/all")
-    public String getAllTeacher(Model model){
+    public String getAllTeacher(@SessionAttribute("currentUser") User user, Model model){
         model.addAttribute("users", teacherService.getAll());
         model.addAttribute("role", UserRole.TEACHER);
+        model.addAttribute("currentUser", user);
         return "list";
     }
 
@@ -38,9 +40,10 @@ public class TeacherController {
     }
 
     @GetMapping("/{id}")
-    public String seeDetails(@PathVariable("id") Integer id, Model model){
+    public String seeDetails(@SessionAttribute("currentUser") User user, @PathVariable("id") Integer id, Model model){
         Teacher foundTeacher=teacherService.getById(id);
         model.addAttribute("user", foundTeacher);
+        model.addAttribute("currentUser", user);
         return "profile";
 
     }

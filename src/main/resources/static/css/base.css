@@ -2,7 +2,7 @@
 :root{
     --theme-color: #7fdbbb;
     --background-color: #ebecf0;
-    --button-change-color: linear-gradient(45deg, RGB(36 252 201), rgb(203,243,111));
+    --gradient-color: linear-gradient(45deg, RGB(36 252 201), rgb(203,243,111));
 }
 *{
     box-sizing: inherit;

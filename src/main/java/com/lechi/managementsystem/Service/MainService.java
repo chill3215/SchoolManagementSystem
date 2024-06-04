@@ -18,4 +18,5 @@ public interface MainService<T> {
 
     public void update(T t);
 
+    public long count();
 }

@@ -56,5 +56,10 @@ public class StudentServiceImpl implements StudentService{
 
     }
 
+    @Override
+    public long count() {
+        return studentRepository.count();
+    }
+
 
 }
