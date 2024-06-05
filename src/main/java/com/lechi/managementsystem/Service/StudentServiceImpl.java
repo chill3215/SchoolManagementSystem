@@ -1,5 +1,6 @@
 package com.lechi.managementsystem.Service;
 
+import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Student;
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -19,8 +21,9 @@ public class StudentServiceImpl implements StudentService{
 
 
     @Override
-    public List<Student> getAll() {
-        return studentRepository.findAll();
+    public List<StudentDTO> getAll() {
+
+         return studentRepository.findAll().stream().map(Student::getStudentDTO).collect(Collectors.toList());
     }
 
     @Override
@@ -29,9 +32,14 @@ public class StudentServiceImpl implements StudentService{
         studentRepository.save(student);
     }
 
+//    @Override
+//    public StudentDTO findByEmail(String email) {
+//        return studentRepository.findByEmail(email).getStudentDTO();
+//    }
+
     @Override
-    public Student findByEmail(String email) {
-        return null;
+    public StudentDTO getDTOById(Integer id) {
+        return studentRepository.getStudentsById(id).getStudentDTO();
     }
 
     @Override
@@ -43,8 +51,9 @@ public class StudentServiceImpl implements StudentService{
     public void deleteById(Integer id) {
         studentRepository.deleteById(id);
     }
+
     @Override
-    public void update(Student updatedStudent) {
+    public void update(StudentDTO updatedStudent) {
         Student existingStudent = getById(updatedStudent.getId());
         if(existingStudent!=null){
             existingStudent.setFullname(updatedStudent.getFullname());

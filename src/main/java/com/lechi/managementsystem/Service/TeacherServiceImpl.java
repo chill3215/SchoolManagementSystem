@@ -1,5 +1,6 @@
 package com.lechi.managementsystem.Service;
 
+import com.lechi.managementsystem.Model.Dto.TeacherDTO;
 import com.lechi.managementsystem.Model.Entity.Teacher;
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TeacherServiceImpl implements TeacherService{
@@ -16,8 +18,9 @@ public class TeacherServiceImpl implements TeacherService{
     TeacherRepository teacherRepository;
 
     @Override
-    public List<Teacher> getAll() {
-        return teacherRepository.findAll();
+    public List<TeacherDTO> getAll() {
+
+        return teacherRepository.findAll().stream().map(Teacher::getTeacherDTO).collect(Collectors.toList());
     }
 
     @Override
@@ -25,15 +28,19 @@ public class TeacherServiceImpl implements TeacherService{
         teacher.setUserRole(UserRole.TEACHER);
         teacherRepository.save(teacher);
     }
-
-    @Override
-    public Teacher findByEmail(String email) {
-        return null;
-    }
+//
+//    @Override
+//    public TeacherDTO findByEmail(String email) {
+//
+//        return teacherRepository.findByEmail(email).getTeacherDTO();
+//    }
 
     @Override
     public Teacher getById(Integer id){
         return teacherRepository.getById(id);
+    }
+    public TeacherDTO getDTOById(Integer id){
+        return teacherRepository.getById(id).getTeacherDTO();
     }
 
     @Override
@@ -42,7 +49,7 @@ public class TeacherServiceImpl implements TeacherService{
     }
 
     @Override
-    public void update(Teacher updatedTeacher) {
+    public void update(TeacherDTO updatedTeacher) {
         Teacher existingTeacher = getById(updatedTeacher.getId());
         if(existingTeacher!=null){
             existingTeacher.setFullname(updatedTeacher.getFullname());

@@ -4,19 +4,20 @@ import com.lechi.managementsystem.Model.Enum.UserRole;
 
 import java.util.List;
 
-public interface MainService<T> {
+public interface MainService<Obj, Dto> {
 
-    public List<T> getAll();
+    public List<Dto> getAll();
 
-    public void add(T t);
+    public void add(Obj o);
 
-    public T findByEmail(String email);
 
-    public T getById(Integer id);
+    public Dto getDTOById(Integer id);
+
+    public Obj getById(Integer id);
 
     public void deleteById(Integer id);
 
-    public void update(T t);
+    public void update(Dto dto);
 
     public long count();
 }

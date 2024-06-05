@@ -1,2 +1,4 @@
-package com.lechi.managementsystem.Service;public interface Subject {
+package com.lechi.managementsystem.Service;
+
+public interface SubjectService {
 }

@@ -22,17 +22,17 @@
                         <input type="date" name="dob" placeholder="Date Of Birth" th:fied="*{dob}">
                     </label>
                 </div>
-<!--                <div class="input-box">-->
-<!--                    <label th:if="${studentId}">-->
-<!--                        <i></i>-->
-<!--                        <input type="text" name="studentId"  placeholder="Student ID" th:field="*{studentId}">-->
-<!--                    </label>-->
-<!--                    <label th:if="${teacherId}">-->
-<!--                        <i></i>-->
-<!--                        <input type="text" name="teacherId"  placeholder="Teacher ID" th:field="*{teacherId}">-->
-<!--                    </label>-->
+                <div class="input-box">
+                    <label th:if="${role.toString()=='STUDENT'}">
+                        <i></i>
+                        <input type="text" name="studentNumber"  placeholder="Student ID" th:field="*{studentNumber}">
+                    </label>
+                    <label th:if="${role.toString()=='TEACHER'}">
+                        <i></i>
+                        <input type="text" name="teacherNumber"  placeholder="Teacher ID" th:field="*{teacherNumber}">
+                    </label>
 
-<!--                </div>-->
+                </div>
                 <div class="input-box">
                     <label>
                         <select name="gender" th:field="*{gender}" required>

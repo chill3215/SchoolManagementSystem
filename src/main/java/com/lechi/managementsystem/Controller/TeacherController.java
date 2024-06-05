@@ -1,5 +1,6 @@
 package com.lechi.managementsystem.Controller;
 
+import com.lechi.managementsystem.Model.Dto.TeacherDTO;
 import com.lechi.managementsystem.Model.Entity.Student;
 import com.lechi.managementsystem.Model.Entity.Teacher;
 import com.lechi.managementsystem.Model.Entity.User;
@@ -56,7 +57,7 @@ public class TeacherController {
     }
 
     @PostMapping("/{id}/updated")
-    public String saveUpdatedTeacher(@PathVariable("id") Integer id, @ModelAttribute Teacher updatedTeacher, Model model){
+    public String saveUpdatedTeacher(@PathVariable("id") Integer id, @ModelAttribute TeacherDTO updatedTeacher, Model model){
         teacherService.update(updatedTeacher);
         return "redirect:/teacher/"+id;
     }

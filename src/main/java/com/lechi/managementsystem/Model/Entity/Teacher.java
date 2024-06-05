@@ -1,5 +1,7 @@
 package com.lechi.managementsystem.Model.Entity;
 
+import com.lechi.managementsystem.Model.Dto.StudentDTO;
+import com.lechi.managementsystem.Model.Dto.TeacherDTO;
 import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import jakarta.persistence.*;
@@ -7,6 +9,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,6 +20,32 @@ import java.time.LocalDate;
 @EqualsAndHashCode(callSuper = true)
 public class Teacher extends User {
 
-    private String subject;
+    @ManyToOne
+    private Subject subject;
+
+    private String qualification;
+
+    private int graduationYear;
+
+    private String teacherNumber;
+
+    @ManyToMany
+    private List<Student> students;
+
+    public TeacherDTO getTeacherDTO(){
+        return TeacherDTO.builder()
+                .fullname(getFullname())
+                .email(getEmail())
+                .id(getId())
+                .graduationYear(graduationYear)
+                .qualification(qualification)
+                .gender(getGender())
+                .dob(getDob())
+                .userRole(UserRole.TEACHER)
+                .subject(subject)
+                .address(getAddress())
+                .phonenumber(getPhonenumber())
+                .build();
+    }
 
 }

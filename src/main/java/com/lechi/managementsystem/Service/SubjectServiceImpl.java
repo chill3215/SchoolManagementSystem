@@ -1,2 +1,4 @@
-package com.lechi.managementsystem.Service;public class SubjectServiceImpl {
+package com.lechi.managementsystem.Service;
+
+public class SubjectServiceImpl implements SubjectService{
 }

@@ -39,18 +39,18 @@ public class UserMainServiceImpl implements UserMainService {
         userRepository.deleteById(id);
     }
 
-    @Override
-    public void update(User updatedUser) {
-        User existingUser = getById(updatedUser.getId());
-        if(existingUser!=null){
-            existingUser.setFullname(updatedUser.getFullname());
-            existingUser.setEmail(updatedUser.getEmail());
-            existingUser.setDob(updatedUser.getDob());
-           userRepository.save(existingUser);
-        }
-
-
-    }
+//    @Override
+//    public void update(User updatedUser) {
+//        User existingUser = getById(updatedUser.getId());
+//        if(existingUser!=null){
+//            existingUser.setFullname(updatedUser.getFullname());
+//            existingUser.setEmail(updatedUser.getEmail());
+//            existingUser.setDob(updatedUser.getDob());
+//           userRepository.save(existingUser);
+//        }
+//
+//
+//    }
 
     @Override
     public void add(User user) {

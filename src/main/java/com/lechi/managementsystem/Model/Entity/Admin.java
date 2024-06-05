@@ -21,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 public class Admin extends User {
 
-    private String major;
+    private String party;
 
 
 

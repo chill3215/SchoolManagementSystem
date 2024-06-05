@@ -1,5 +1,6 @@
 package com.lechi.managementsystem.Controller;
 
+import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Student;
 import com.lechi.managementsystem.Model.Entity.Teacher;
 import com.lechi.managementsystem.Model.Entity.User;
@@ -48,7 +49,7 @@ public class StudentController {
 
     @GetMapping("/{id}")
     public String seeDetails(@SessionAttribute("currentUser") User user, @PathVariable("id") Integer id, Model model){
-        Student foundStudent=studentService.getById(id);
+        StudentDTO foundStudent=studentService.getDTOById(id);
         model.addAttribute("user", foundStudent);
         model.addAttribute("currentUser", user);
         return "profile";
@@ -57,13 +58,13 @@ public class StudentController {
 
     @GetMapping("/{id}/updateForm")
     public String getUpdateForm(@PathVariable("id") Integer id, Model model){
-        Student foundStudent = studentService.getById(id);
+        StudentDTO foundStudent = studentService.getDTOById(id);
         model.addAttribute("user", foundStudent);
         return "updateForm";
     }
 
     @PostMapping("/{id}/updated")
-    public String saveUpdatedStudent(@PathVariable("id") Integer id,@ModelAttribute Student updatedStudent, Model model){
+    public String saveUpdatedStudent(@PathVariable("id") Integer id,@ModelAttribute StudentDTO updatedStudent, Model model){
         studentService.update(updatedStudent);
         return "redirect:/student/"+id;
     }
