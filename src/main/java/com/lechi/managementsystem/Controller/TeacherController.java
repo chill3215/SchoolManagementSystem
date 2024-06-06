@@ -1,10 +1,10 @@
 package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Model.Dto.TeacherDTO;
-import com.lechi.managementsystem.Model.Entity.Student;
 import com.lechi.managementsystem.Model.Entity.Teacher;
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
+import com.lechi.managementsystem.Service.SubjectService;
 import com.lechi.managementsystem.Service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +17,18 @@ public class TeacherController {
 
     @Autowired
     TeacherService teacherService;
+
+    @Autowired
+    SubjectService subjectService;
+
+
     @GetMapping("/form")
     public String getFormTeacher(Model model){
         model.addAttribute("user", new Teacher());
         model.addAttribute("role", UserRole.TEACHER);
+        model.addAttribute("subjects", subjectService.getAll());
 //        model.addAttribute("teacherId", true);
-        return "formAdd";
+        return "formUser";
     }
 
     @GetMapping("/all")
@@ -30,12 +36,12 @@ public class TeacherController {
         model.addAttribute("users", teacherService.getAll());
         model.addAttribute("role", UserRole.TEACHER);
         model.addAttribute("currentUser", user);
-        return "list";
+        return "listUser";
     }
 
     @PostMapping("")
     public String addTeacher(@ModelAttribute Teacher teacher){
-
+        Integer subjectId = teacher.getSubject().getId();
         teacherService.add(teacher);
         return "redirect:/teacher/all";
     }
@@ -53,7 +59,7 @@ public class TeacherController {
     public String getUpdateForm(@PathVariable("id") Integer id, Model model){
         Teacher foundTeacher = teacherService.getById(id);
         model.addAttribute("user", foundTeacher);
-        return "updateForm";
+        return "updateFormUser";
     }
 
     @PostMapping("/{id}/updated")
@@ -78,4 +84,6 @@ public class TeacherController {
         return "redirect:/teacher/all";
 
     }
+
+
 }

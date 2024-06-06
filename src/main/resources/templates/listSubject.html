@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <div class="fullscreen">
+        <div>
+            <ul class="list_holder">
+                <li  class="list_ele" th:each="subject : ${subjects}">
+                    <span th:text="${subject.name}"></span>
+                    <form action="#" method="get" th:action="@{/subject/{id}(id=${subject.id})}">
+                        <button class="button button_see" >SEE DETAILS</button>
+                    </form>
+                    <form action="#" method="post" th:action="@{/subject/{id}(id=${subject.id})}" th:if="${currentUser.userRole.toString()=='ADMIN'}">
+                        <input type="hidden" name="_method" value="delete">
+                        <button>DELETE</button>
+                    </form>
+
+                </li>
+                <form action="#" method="get" th:action="@{/subject/form}" th:if="${currentUser.userRole.toString()=='ADMIN'}">
+                    <button class="button button_add">ADD</button>
+                </form>
+            </ul>
+        </div>
+    </div>
+
 </body>
 </html>

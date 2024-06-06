@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<div>
+<h1>New Subject</h1>
+<form action="/subject" method="post" th:object="${subject}">
+    <div class="fields_container">
+
+        <label>Subject name: </label>
+        <input type="text" name="name" th:field="*{name}">
+
+        <label>Subject code: </label>
+        <input type="text" name="subjectCode" th:field="*{subjectCode}">
+
+
+        <label>Room:</label>
+        <input type="text" name="room"  th:field="*{room}">
+
+        <label>Credit points:</label>
+        <input type="text" name="creditPoints" th:field="*{creditPoints}">
+
+
+    </div>
+    <button>Submit</button>
+</form>
+</div>
 </body>
 </html>

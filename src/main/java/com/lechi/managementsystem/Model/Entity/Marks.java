@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TestResult {
+public class Marks {
 
     @OneToOne
     private Subject subject;

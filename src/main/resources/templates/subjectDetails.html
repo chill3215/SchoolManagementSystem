@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title></title>
 </head>
 <body>
-$END$
+<div class="container">
+    <h1 th:text="${subject.name}"></h1>
+    <input type="hidden" th:value="${subject.id}">
+    <div class="fields_container">
+
+        <label>Subject code: </label>
+        <text th:text="${subject.subjectCode}"></text>
+
+        <label> Room:</label>
+        <text th:text="${subject.room}"></text>
+
+        <label>Credit points:</label>
+        <text th:text="${subject.creditPoints}"></text>
+
+
+
+    </div>
+    <form action="#" method="get" th:action="@{/subject/{id}/updateForm(id=${subject.id})}" th:if="${currentUser.userRole.toString()!='STUDENT'}">
+        <button class="button button_update" >UPDATE</button>
+    </form>
+    <form action="/subject/all" method="get">
+        <button>SEE ALL SUBJECTS</button>
+    </form>
+    <form action="#" method="post" th:action="@{/subject/{id}(id=${subject.id})}" th:if="${currentUser.userRole.toString()=='ADMIN'}">
+        <input type="hidden" name="_method" value="delete">
+        <button>DELETE</button>
+    </form>
+
+
+
+</div>
+
 </body>
 </html>

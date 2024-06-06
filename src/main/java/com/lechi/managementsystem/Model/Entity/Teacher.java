@@ -7,6 +7,8 @@ import com.lechi.managementsystem.Model.Enum.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,6 +23,8 @@ import java.util.List;
 public class Teacher extends User {
 
     @ManyToOne
+    @JoinColumn(name = "subject_id", nullable = true)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Subject subject;
 
     private String qualification;

@@ -1,5 +1,6 @@
 package com.lechi.managementsystem.Model.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name="subject")
+@Table(name="subjects")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,13 +21,12 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(mappedBy = "subject")
-    private List<Teacher> teachers;
+    private String name;
 
-    @ElementCollection
-    private List<Book> books;
 
     private String room;
 
     private int creditPoints;
+
+    private String subjectCode;
 }

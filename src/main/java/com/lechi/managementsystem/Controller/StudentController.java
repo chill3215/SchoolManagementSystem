@@ -2,12 +2,9 @@ package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Student;
-import com.lechi.managementsystem.Model.Entity.Teacher;
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import com.lechi.managementsystem.Service.StudentService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,18 +14,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/student")
 public class StudentController {
 
-//    public User getCurrentUser(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        return (User) session.getAttribute("currentUser");
-//    }
-
     @Autowired
     StudentService studentService;
     @GetMapping("/form")
     public String getFormStudent(Model model){
         model.addAttribute("user", new Student());
         model.addAttribute("role", UserRole.STUDENT);
-        return "formAdd";
+        return "formUser";
     }
 
     @GetMapping("/all")
@@ -37,7 +29,7 @@ public class StudentController {
         model.addAttribute("role", UserRole.STUDENT);
         model.addAttribute("currentUser", user);
 //        User currentUser = getCurrentUser()
-        return "list";
+        return "listUser";
     }
 
     @PostMapping("")
@@ -60,7 +52,7 @@ public class StudentController {
     public String getUpdateForm(@PathVariable("id") Integer id, Model model){
         StudentDTO foundStudent = studentService.getDTOById(id);
         model.addAttribute("user", foundStudent);
-        return "updateForm";
+        return "updateFormUser";
     }
 
     @PostMapping("/{id}/updated")

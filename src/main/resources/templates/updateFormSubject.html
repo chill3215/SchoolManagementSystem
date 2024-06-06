@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h1>Change information form</h1>
+<form action="#" method="post" th:action="@{/subject/{id}/update(id=${subject.id})}" th:object="${subject}">
+    <input type="hidden" th:value="${subject.id}" th:field="*{id}">
+    <div class="fields_container">
+        <label>Subject code: </label>
+        <input type="text" name="subjectCode" th:value="${subject.subjectCode}" th:field="*{subjectCode}">
+
+
+        <label>Room:</label>
+        <input type="text" name="room" th:value="${subject.room}" th:field="*{room}">
+
+        <label>Credit points:</label>
+        <input type="text" name="creditPoints" th:value="${subject.creditPoints}" th:field="*{creditPoints}">
+
+
+    </div>
+    <button>Submit</button>
+</form>
 </body>
 </html>

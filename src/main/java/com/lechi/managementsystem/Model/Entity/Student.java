@@ -32,7 +32,7 @@ public class Student extends User {
     private String studentNumber;
 
     @ElementCollection
-    private List<TestResult> results;
+    private List<Marks> results;
 
     @ManyToMany(mappedBy = "students")
     private List<Teacher> teachers;
