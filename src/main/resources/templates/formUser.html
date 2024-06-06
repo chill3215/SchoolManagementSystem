@@ -63,6 +63,15 @@
                         <input type="text" name="phonenumber" placeholder="Phone number" th:field="*{phonenumber}">
                     </label>
                 </div>
+                <div class="input-box" th:if="${role.toString()=='TEACHER'}">
+                    <label>
+                        <i></i>
+                        <select name="subject" th:field="*{subject}">
+                            <option value="" th:text="'Please select a subject'" disabled selected></option>
+                            <option th:each="subject : ${subjects}" th:value="${subject.id}" th:text="${subject.name}"></option>
+                        </select>
+                    </label>
+                </div>
             </div>
 
 
