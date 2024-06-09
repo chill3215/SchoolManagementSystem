@@ -1,8 +1,15 @@
 
-:root{
-    --theme-color: #7fdbbb;
+:root {
+    --theme-color: #1ad393;
     --background-color: #ebecf0;
-    --gradient-color: linear-gradient(45deg, RGB(36 252 201), rgb(203,243,111));
+    --gradient-color: linear-gradient(45deg, RGB(36 252 201), rgb(203, 243, 111));
+    --gradient-color-reverse: linear-gradient(135deg,rgb(203, 243, 111), RGB(36 252 201));
+    --color-infor-dark: #7d8da1;
+    --color-light: rgba(182, 184, 206, 0.18);
+    --color-infor-black: #000000FF;
+    --box-background-color: #f6f6f9;
+
+
 }
 *{
     box-sizing: inherit;
@@ -26,5 +33,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
+}
+button{
+    margin-top: 25px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    padding: 12px 36px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    width: fit-content;
+    background: var(--gradient-color);
 
 }

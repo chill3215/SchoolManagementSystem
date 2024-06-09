@@ -3,6 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://kit.fontawesome.com/c6b60a295c.js" crossorigin="anonymous"></script>
     <title>Title</title>
 </head>
 <body>
@@ -21,8 +26,12 @@
             <label>Email:</label>
             <input type="email" name="email" th:value="${user.email}" th:field="*{email}">
 
-            <label for="class">class:</label>
-            <input type="Klasse" name="klasse">
+            <label th:if="${user.userRole.toString()=='TEACHER'}">
+                <i></i>
+                <select name="subject" th:field="*{subject}">
+                    <option th:each="subject : ${subjects}" th:value="${subject.id}" th:text="${subject.name}"></option>
+                </select>
+            </label>
 
         </div>
         <button>Submit</button>

@@ -4,6 +4,7 @@ import com.lechi.managementsystem.Model.Entity.Subject;
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Repository.SubjectRepository;
 import com.lechi.managementsystem.Service.StudentService;
+import com.lechi.managementsystem.Service.SubjectService;
 import com.lechi.managementsystem.Service.TeacherService;
 import com.lechi.managementsystem.Service.UserMainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class MainController {
 
     @Autowired
     private TeacherService teacherService;
+
+    @Autowired
+    private SubjectService subjectService;
     @GetMapping("/")
     public String homepage(){
         return "homepage";
@@ -63,6 +67,7 @@ public class MainController {
         model.addAttribute("countUsers", userService.count());
         model.addAttribute("countTeachers", teacherService.count());
         model.addAttribute("countStudents", studentService.count());
+        model.addAttribute("countSubjects", subjectService.count());
     }
 
     

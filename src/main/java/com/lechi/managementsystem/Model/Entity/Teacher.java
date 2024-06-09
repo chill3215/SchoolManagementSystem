@@ -29,9 +29,11 @@ public class Teacher extends User {
 
     private String qualification;
 
-    private int graduationYear;
-
     private String teacherNumber;
+
+    private String school;
+
+
 
     @ManyToMany
     private List<Student> students;
@@ -41,7 +43,6 @@ public class Teacher extends User {
                 .fullname(getFullname())
                 .email(getEmail())
                 .id(getId())
-                .graduationYear(graduationYear)
                 .qualification(qualification)
                 .gender(getGender())
                 .dob(getDob())
@@ -49,6 +50,10 @@ public class Teacher extends User {
                 .subject(subject)
                 .address(getAddress())
                 .phonenumber(getPhonenumber())
+                .teacherNumber(teacherNumber)
+                .entryYear(getEntryYear())
+                .school(school)
+                .nationality(getNationality())
                 .build();
     }
 

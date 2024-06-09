@@ -26,7 +26,11 @@ public class TeacherDTO {
     private String phonenumber;
     private String gender;
     private String address;
-    private int graduationYear;
+    private String teacherNumber;
+    private int entryYear;
+    private String nationality;
+    private String school;
+
 
 
 

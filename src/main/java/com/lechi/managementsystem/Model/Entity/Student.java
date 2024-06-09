@@ -49,6 +49,9 @@ public class Student extends User {
                 .dob(getDob())
                 .gender(getGender())
                 .phonenumber(getPhonenumber())
+                .studentNumber(studentNumber)
+                .entryYear(getEntryYear())
+                .nationality(getNationality())
                 .build();
     }
 }

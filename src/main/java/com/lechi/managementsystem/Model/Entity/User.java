@@ -32,6 +32,8 @@ public class User {
     private String address;
     private String gender;
     private String phonenumber;
+    private int entryYear;
+    private String nationality;
 
 
     @Enumerated(EnumType.STRING)

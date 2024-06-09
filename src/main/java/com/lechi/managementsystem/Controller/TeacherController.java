@@ -59,6 +59,7 @@ public class TeacherController {
     public String getUpdateForm(@PathVariable("id") Integer id, Model model){
         Teacher foundTeacher = teacherService.getById(id);
         model.addAttribute("user", foundTeacher);
+        model.addAttribute("subjects", subjectService.getAll());
         return "updateFormUser";
     }
 

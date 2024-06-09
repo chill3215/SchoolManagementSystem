@@ -55,6 +55,7 @@ public class TeacherServiceImpl implements TeacherService{
             existingTeacher.setFullname(updatedTeacher.getFullname());
             existingTeacher.setEmail(updatedTeacher.getEmail());
             existingTeacher.setDob(updatedTeacher.getDob());
+            existingTeacher.setSubject(updatedTeacher.getSubject());
             teacherRepository.save(existingTeacher);
         }
 

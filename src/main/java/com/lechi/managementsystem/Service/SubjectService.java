@@ -15,4 +15,6 @@ public interface SubjectService {
     public void update(Subject subject);
 
     public Subject getById(Integer id);
+
+    public long count();
 }

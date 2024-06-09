@@ -1,0 +1,116 @@
+.nav-bar{
+    width: 100%;
+    height: 10%;
+    background: #e7e9eb;
+
+    position: fixed;
+    top: 0;
+}
+
+.logo {
+    width: 17%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+
+.nav-bar .logo  span{
+    width: 100%;
+    text-transform: uppercase;
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.2rem;
+    line-height: 4rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+/*side bar*/
+.side-bar{
+    padding-top: 20px;
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    background: var(--background-color);
+
+}
+.menu{
+    padding: 7px 0;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+
+.side-bar a{
+    display: flex;
+    height: 6rem;
+    font-size: 1.8rem;
+    line-height: 6.5rem;
+    margin-left: 2rem;
+    text-decoration: none;
+    align-items: center;
+    color: var(--color-infor-dark);
+    position: relative;
+
+}
+.side-bar a i{
+    padding-top: 2px;
+    width: 20px;
+    height: 30px;
+    font-size: 2.3rem;
+    margin-right: 12%;
+    color: inherit;
+    transition: all 300ms ease;
+}
+
+.side-bar a span{
+    line-height: 10px;
+    font-size: 1.6rem;
+    gap: 1rem;
+    font-weight: 500;
+}
+
+
+.side-bar .active {
+    background: var(--box-background-color);
+    color: var(--theme-color);
+    margin-left: 0;
+}
+
+.side-bar .active:before {
+    content: '';
+    width: 6px;
+    height: 100%;
+    background: var(--theme-color);
+}
+.side-bar .active i{
+    margin-left: calc(2rem - 6px) ;
+}
+
+
+.side-bar a:hover {
+    color: var(--theme-color);
+}
+.side-bar a:hover i{
+    margin-left: 2rem;
+}
+
+
+/*Page content*/
+
+
+
+.page-content{
+    width: 85%;
+    position: fixed;
+    height: 100%;
+    right: 0;
+    top: 10%;
+    background: var(--background-color);
+}

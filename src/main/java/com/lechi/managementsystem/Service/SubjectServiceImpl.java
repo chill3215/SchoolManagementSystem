@@ -45,6 +45,11 @@ public class SubjectServiceImpl implements SubjectService{
     }
 
     @Override
+    public long count() {
+        return subjectRepository.count();
+    }
+
+    @Override
     public List<Subject> getAll() {
         return subjectRepository.findAll();
     }

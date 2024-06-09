@@ -26,5 +26,8 @@ public class StudentDTO {
     private String phonenumber;
     private LocalDate dob;
     private String gender;
+    private String studentNumber;
+    private int entryYear;
+    private String nationality;
 
 }
