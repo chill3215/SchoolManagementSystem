@@ -45,8 +45,6 @@ This project is a web application designed to manage teachers and students' info
 
 4. Getting Started
 
-   
-Prerequisites:
   - JDK 11 or higher
   - IntelliJ IDEA
   - MySQL
@@ -59,30 +57,36 @@ Admin can management teachers, students and subjects information while teachers 
 
 
 6. Installation
-  a. Clone the repository:
+   - Clone the repository:
     ```bash
     git clone https://github.com/your-username/student-management-system.git
     cd student-management-system
     ```
-  b. Configure the database:
-    -Update the application.properties file in the src/main/resources directory with your MySQL database details.
+  - Configure the database:
+    + Update the application.properties file in the src/main/resources directory with your MySQL database details.
+      ```java
       spring.datasource.url=jdbc:mysql://localhost:3306/management_system
       spring.datasource.username=your-username
       spring.datasource.password=your-password
       spring.jpa.hibernate.ddl-auto=update
-  c. Build the project:
+      ```
+  - Build the project:
+    ```bash
       mvn clean install
-  d. Run the application:
+    ```
+  - Run the application:
+    ```bash
     mvn spring-boot:run
-  e. Access the application:
-    Open your browser and navigate to http://localhost:8080.
+    ```
+  - Access the application:
+    + Open your browser and navigate to http://localhost:8080.
 
-7.Missing aspects
-  -Spring security for authorization
-  -Web interface is not designed responsively
+7. Missing aspects
+  - Spring security for authorization
+  - Web interface is not designed responsively
 
-8.Contact
--For any questions or feedback, please contact at linhchi1152004@gmail.com.
+8. Contact
+- For any questions or feedback, please contact at linhchi1152004@gmail.com.
   
 
 
