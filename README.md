@@ -18,8 +18,12 @@ This project is a web application designed to manage teachers and students' info
 
 ## B.Detailed information
 
-1.Introduction
-  -SCHOLARLY is built to simplify the process of managing teacher and student information, including personal details and academic records. This system aims to automate and streamline various administrative tasks, thereby improving efficiency and accuracy.
+1. Introduction
+
+
+-SCHOLARLY is built to simplify the process of managing teacher and student information, including personal details and academic records. This system aims to automate and streamline various administrative tasks, thereby improving efficiency and accuracy.
+
+  
 
   Key Objectives:
   -Ease of Use: Provide an intuitive interface for users, including administrators, teachers, and students.
