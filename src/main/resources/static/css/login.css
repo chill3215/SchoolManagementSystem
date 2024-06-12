@@ -10,7 +10,7 @@
 }
 .side-container{
     flex: 1;
-    background: var(--button-change-color);
+    background: var(--gradient-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,20 +92,6 @@ select:invalid{
     color: #757575;
 }
 button{
-    margin-top: 25px;
-    border-radius: 20px;
-    outline: none;
-    border: none;
-    padding: 12px 36px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    width: fit-content;
-    background: var(--button-change-color);
-    box-shadow: -5px -5px 10px #fff,
-                5px 5px 8px #babebc;
     transition: transform 0.3s ease, padding 0.3s ease,
                 box-shadow 0.3s ease,font-size 0.3s ease-in-out;
 }

@@ -1,37 +1,60 @@
 package com.lechi.managementsystem.Model.Entity;
 
+import com.lechi.managementsystem.Model.Dto.StudentDTO;
+import com.lechi.managementsystem.Model.Dto.TeacherDTO;
 import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "teachers")
 @Data
-@AllArgsConstructor
+@Table(name = "teachers")
 @NoArgsConstructor
-@Builder
-public class Teacher {
+@AllArgsConstructor
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class Teacher extends User {
+
+    @ManyToOne
+    @JoinColumn(name = "subject_id", nullable = true)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
+    private Subject subject;
+
+    private String qualification;
+
+    private String teacherNumber;
+
+    private String school;
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
-    private String fullname;
-    private LocalDate dob;
-    private String email;
-    private String password;
-    private Gender gender;
-    private String phonenumber;
-    private String teacherId;
-    private String address;
+    @ManyToMany
+    private List<Student> students;
 
-    @Enumerated(EnumType.STRING)
-    private UserRole userRole = UserRole.TEACHER;
+    public TeacherDTO getTeacherDTO(){
+        return TeacherDTO.builder()
+                .fullname(getFullname())
+                .email(getEmail())
+                .id(getId())
+                .qualification(qualification)
+                .gender(getGender())
+                .dob(getDob())
+                .userRole(UserRole.TEACHER)
+                .subject(subject)
+                .address(getAddress())
+                .phonenumber(getPhonenumber())
+                .teacherNumber(teacherNumber)
+                .entryYear(getEntryYear())
+                .school(school)
+                .nationality(getNationality())
+                .build();
+    }
+
 }

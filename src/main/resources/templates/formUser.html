@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://kit.fontawesome.com/c6b60a295c.js" crossorigin="anonymous"></script>
     <title>Title</title>
 </head>
 <body>
 <div class="container">
-    <h1 th:text="'Register new '+${user.userRole}"> </h1>
-    <form action="#" method="post" th:action="@{/{userRole}(userRole=${user.userRole.toString().toLowerCase()})}" th:object="${user}">
-
+    <h1 th:text="'Register new '+${role}"> </h1>
+    <form action="#" method="post" th:action="@{/{userRole}(userRole=${role.toString().toLowerCase()})}" th:object="${user}">
         <div class="fields_container">
             <div class="general">
                 <div class="input-box">
@@ -23,17 +27,17 @@
                         <input type="date" name="dob" placeholder="Date Of Birth" th:fied="*{dob}">
                     </label>
                 </div>
-<!--                <div class="input-box">-->
-<!--                    <label th:if="${studentId}">-->
-<!--                        <i></i>-->
-<!--                        <input type="text" name="studentId"  placeholder="Student ID" th:field="*{studentId}">-->
-<!--                    </label>-->
-<!--                    <label th:if="${teacherId}">-->
-<!--                        <i></i>-->
-<!--                        <input type="text" name="teacherId"  placeholder="Teacher ID" th:field="*{teacherId}">-->
-<!--                    </label>-->
+                <div class="input-box">
+                    <label th:if="${role.toString()=='STUDENT'}">
+                        <i></i>
+                        <input type="text" name="studentNumber"  placeholder="Student ID" th:field="*{studentNumber}">
+                    </label>
+                    <label th:if="${role.toString()=='TEACHER'}">
+                        <i></i>
+                        <input type="text" name="teacherNumber"  placeholder="Teacher ID" th:field="*{teacherNumber}">
+                    </label>
 
-<!--                </div>-->
+                </div>
                 <div class="input-box">
                     <label>
                         <select name="gender" th:field="*{gender}" required>
@@ -62,6 +66,15 @@
                     <label>
                         <i></i>
                         <input type="text" name="phonenumber" placeholder="Phone number" th:field="*{phonenumber}">
+                    </label>
+                </div>
+                <div class="input-box" th:if="${role.toString()=='TEACHER'}">
+                    <label>
+                        <i></i>
+                        <select name="subject" th:field="*{subject}">
+                            <option value="" th:text="'Please select a subject'" disabled selected></option>
+                            <option th:each="subject : ${subjects}" th:value="${subject.id}" th:text="${subject.name}"></option>
+                        </select>
                     </label>
                 </div>
             </div>

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://kit.fontawesome.com/c6b60a295c.js" crossorigin="anonymous"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>Change information form</h1>
+    <form action="#" method="post" th:action="@{/{userRole}/{id}/updated(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}" th:object="${user}">
+        <input type="hidden" th:value="${user.id}" th:field="*{id}">
+        <div class="fields_container">
+            <label>Full Name: </label>
+            <input type="text" name="firstname" th:value="${user.fullname}" th:field="*{fullname}">
+
+
+            <label>Date of birth:</label>
+            <input type="date" name="dob" th:value="${user.dob}" th:field="*{dob}">
+
+            <label>Email:</label>
+            <input type="email" name="email" th:value="${user.email}" th:field="*{email}">
+
+            <label th:if="${user.userRole.toString()=='TEACHER'}">
+                <i></i>
+                <select name="subject" th:field="*{subject}">
+                    <option th:each="subject : ${subjects}" th:value="${subject.id}" th:text="${subject.name}"></option>
+                </select>
+            </label>
+
+        </div>
+        <button>Submit</button>
+    </form>
+
+</div>
+</body>
+</html>

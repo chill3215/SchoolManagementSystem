@@ -1,34 +1,57 @@
 package com.lechi.managementsystem.Model.Entity;
 
+import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.List;
+
 
 @Entity
-@Table(name = "students")
 @Data
-@AllArgsConstructor
+@Table(name = "students")
 @NoArgsConstructor
-@Builder
-public class Student {
+@AllArgsConstructor
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class Student extends User {
 
+    private String grade;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @ManyToMany
+    private List<Subject> subjects;
 
-    private String fullname;
-    private LocalDate dob;
-    private String email;
-    private String password;
-    private Gender gender;
-    private String phonenumber;
-    private String studentId;
+    private String fatherName;
 
+    private String motherName;
 
-    @Enumerated(EnumType.STRING)
-    private UserRole userRole=UserRole.STUDENT;
+    private String studentNumber;
+
+    @ElementCollection
+    private List<Marks> results;
+
+    @ManyToMany(mappedBy = "students")
+    private List<Teacher> teachers;
+
+    public StudentDTO getStudentDTO(){
+        return StudentDTO.builder()
+                .fullname(getFullname())
+                .email(getEmail())
+                .id(getId())
+                .grade(grade)
+                .userRole(UserRole.STUDENT)
+                .fatherName(fatherName)
+                .motherName(motherName)
+                .dob(getDob())
+                .gender(getGender())
+                .phonenumber(getPhonenumber())
+                .studentNumber(studentNumber)
+                .entryYear(getEntryYear())
+                .nationality(getNationality())
+                .build();
+    }
 }

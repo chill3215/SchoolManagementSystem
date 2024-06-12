@@ -1,7 +1,9 @@
 package com.lechi.managementsystem.Controller;
 
+import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Student;
-import com.lechi.managementsystem.Model.Entity.Teacher;
+import com.lechi.managementsystem.Model.Entity.User;
+import com.lechi.managementsystem.Model.Enum.UserRole;
 import com.lechi.managementsystem.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,40 +19,46 @@ public class StudentController {
     @GetMapping("/form")
     public String getFormStudent(Model model){
         model.addAttribute("user", new Student());
-//        model.addAttribute("studentId", true);
-        return "formAdd";
+        model.addAttribute("role", UserRole.STUDENT);
+        return "formUser";
     }
 
     @GetMapping("/all")
-    public String getAllStudent(Model model){
+    public String getAllStudent(@SessionAttribute("currentUser")User user, Model model){
         model.addAttribute("users", studentService.getAll());
-        return "list";
+        model.addAttribute("role", UserRole.STUDENT);
+        model.addAttribute("currentUser", user);
+//        User currentUser = getCurrentUser()
+        return "listUser";
     }
 
     @PostMapping("")
-    public void addStudent(@ModelAttribute Student student){
+    public String addStudent(@ModelAttribute Student student){
+
         studentService.add(student);
+        return "redirect:/student/all";
     }
 
     @GetMapping("/{id}")
-    public String seeDetails(@PathVariable("id") Integer id, Model model){
-        Student foundStudent=studentService.getById(id);
+    public String seeDetails(@SessionAttribute("currentUser") User user, @PathVariable("id") Integer id, Model model){
+        StudentDTO foundStudent=studentService.getDTOById(id);
         model.addAttribute("user", foundStudent);
+        model.addAttribute("currentUser", user);
         return "profile";
 
     }
 
     @GetMapping("/{id}/updateForm")
     public String getUpdateForm(@PathVariable("id") Integer id, Model model){
-        Student foundStudent = studentService.getById(id);
+        StudentDTO foundStudent = studentService.getDTOById(id);
         model.addAttribute("user", foundStudent);
-        return "updateForm";
+        return "updateFormUser";
     }
 
-    @PutMapping("/{id}")
-    public String saveUpdatedStudent(@PathVariable("id") Integer id,@ModelAttribute Student updatedStudent, Model model){
+    @PostMapping("/{id}/updated")
+    public String saveUpdatedStudent(@PathVariable("id") Integer id,@ModelAttribute StudentDTO updatedStudent, Model model){
         studentService.update(updatedStudent);
-        return "redirect:/teacher/seeStudent/"+id;
+        return "redirect:/student/"+id;
     }
 
     @PostMapping("{id}")

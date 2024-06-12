@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://kit.fontawesome.com/c6b60a295c.js" crossorigin="anonymous"></script>
+    <title>Title</title>
+
+</head>
+<body>
+    <div>
+        <body>
+        <ul class="list_holder">
+            <li  class="list_ele" th:each="user : ${users}">
+                <span th:text="${user.fullname}"></span>
+                <form action="#" method="get" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}">
+                    <button class="button button_see" >SEE DETAILS</button>
+                </form>
+                <form action="#" method="post" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()}, id=${user.id})}" th:if="${currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=role}">
+                    <input type="hidden" name="_method" value="delete">
+                    <button>DELETE</button>
+                </form>
+
+            </li>
+            <form action="#" method="get" th:action="@{/{userRole}/form(userRole=${role.toString().toLowerCase()})}" th:if="${currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=role}">
+                <button class="button button_add">ADD</button>
+            </form>
+        </ul>
+        </body>
+    </div>
+
+</body>
+</html>

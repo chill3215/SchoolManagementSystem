@@ -1,7 +1,10 @@
 package com.lechi.managementsystem.Controller;
 
-import com.lechi.managementsystem.Model.Entity.Student;
+import com.lechi.managementsystem.Model.Dto.TeacherDTO;
 import com.lechi.managementsystem.Model.Entity.Teacher;
+import com.lechi.managementsystem.Model.Entity.User;
+import com.lechi.managementsystem.Model.Enum.UserRole;
+import com.lechi.managementsystem.Service.SubjectService;
 import com.lechi.managementsystem.Service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,28 +17,40 @@ public class TeacherController {
 
     @Autowired
     TeacherService teacherService;
+
+    @Autowired
+    SubjectService subjectService;
+
+
     @GetMapping("/form")
     public String getFormTeacher(Model model){
         model.addAttribute("user", new Teacher());
+        model.addAttribute("role", UserRole.TEACHER);
+        model.addAttribute("subjects", subjectService.getAll());
 //        model.addAttribute("teacherId", true);
-        return "formAdd";
+        return "formUser";
     }
 
     @GetMapping("/all")
-    public String getAllTeacher(Model model){
+    public String getAllTeacher(@SessionAttribute("currentUser") User user, Model model){
         model.addAttribute("users", teacherService.getAll());
-        return "list";
+        model.addAttribute("role", UserRole.TEACHER);
+        model.addAttribute("currentUser", user);
+        return "listUser";
     }
 
     @PostMapping("")
-    public void addTeacher(@ModelAttribute Teacher teacher){
+    public String addTeacher(@ModelAttribute Teacher teacher){
+        Integer subjectId = teacher.getSubject().getId();
         teacherService.add(teacher);
+        return "redirect:/teacher/all";
     }
 
     @GetMapping("/{id}")
-    public String seeDetails(@PathVariable("id") Integer id, Model model){
+    public String seeDetails(@SessionAttribute("currentUser") User user, @PathVariable("id") Integer id, Model model){
         Teacher foundTeacher=teacherService.getById(id);
         model.addAttribute("user", foundTeacher);
+        model.addAttribute("currentUser", user);
         return "profile";
 
     }
@@ -44,13 +59,14 @@ public class TeacherController {
     public String getUpdateForm(@PathVariable("id") Integer id, Model model){
         Teacher foundTeacher = teacherService.getById(id);
         model.addAttribute("user", foundTeacher);
-        return "updateForm";
+        model.addAttribute("subjects", subjectService.getAll());
+        return "updateFormUser";
     }
 
-    @PutMapping("/{id}")
-    public String saveUpdatedTeacher(@PathVariable("id") Integer id, @ModelAttribute Teacher updatedTeacher, Model model){
+    @PostMapping("/{id}/updated")
+    public String saveUpdatedTeacher(@PathVariable("id") Integer id, @ModelAttribute TeacherDTO updatedTeacher, Model model){
         teacherService.update(updatedTeacher);
-        return "redirect:/teacher/seeTeacher/"+id;
+        return "redirect:/teacher/"+id;
     }
 
     @PostMapping("{id}")
@@ -69,4 +85,6 @@ public class TeacherController {
         return "redirect:/teacher/all";
 
     }
+
+
 }

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/portal.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script src="https://kit.fontawesome.com/c6b60a295c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="fullscreen">
+      <div class="nav-bar">
+        <div class="logo">
+          <span>scholarly</span>
+        </div>
+        <a href="">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Log out</span>
+        </a>
+      </div>
+      <div class="side-bar">
+        <div class="menu">
+          <a href="" class="active">
+            <i class="fa-solid fa-house-user"></i>
+            <span th:text="Dashboard"></span>
+          </a>
+          <a href="/teacher/all">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Teachers</span>
+          </a>
+          <a href="/student/all">
+            <i class="fa-solid fa-users"></i>
+            <span>Students</span>
+          </a>
+          <a href="/subject/all">
+            <i class="fa-solid fa-school"></i>
+            <span>Subjects</span>
+          </a>
+          <a href="">
+            <i class="fa-solid fa-star"></i>
+            <span>Marks</span>
+          </a>
+
+        </div>
+
+      </div>
+      <div class="page-content">
+        <div class="title">
+          <h1>Dashboard</h1>
+        </div>
+        <div class="bar">
+          <i class="fa-regular fa-star"></i>
+          <span>View this project on github</span>
+        </div>
+<!--        <div class="message">-->
+<!--          <h2 th:text="'Welcome back '+${user.userRole}+' '+ ${user.fullname}"></h2>-->
+<!--        </div>-->
+        <div class="content-box">
+          <div class="box teacher-box">
+            <div class="icon">
+              <i class="fa-solid fa-users-line"></i>
+
+            </div>
+            <div class="data">
+              <span th:text="${countTeachers}"></span>
+              <span>Teachers</span>
+
+            </div>
+          </div>
+          <div class="box student-box">
+            <div class="icon">
+              <i class="fa-solid fa-user-graduate"></i>
+
+            </div>
+            <div class="data">
+              <span th:text="${countStudents}"></span>
+              <span>Students</span>
+
+            </div>
+          </div>
+          <div class="box subject-box">
+            <div class="icon">
+              <i class="fa-solid fa-book-open"></i>
+
+            </div>
+            <div class="data">
+              <span th:text="${countSubjects}"></span>
+              <span>Subjects</span>
+            </div>
+          </div>
+          <div class="box score-box">
+            <div class="icon">
+              <i class="fa-solid fa-award"></i>
+
+            </div>
+            <div class="data">
+              <span>0</span>
+              <span>Score</span>
+            </div>
+          </div>
+          <div class="box event-box">
+
+          </div>
+          <div class="box box6"></div>
+          <div class="box box7"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+</body>
+</html>

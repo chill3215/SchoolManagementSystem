@@ -8,13 +8,15 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Integer> {
+public interface UserRepository<T extends User> extends JpaRepository<T,Integer> {
 
 //    public List<User> findUsersByUserRole(UserRole userRole);
 
-    public User findByUserRole(UserRole userRole);
+    public T findByUserRole(UserRole userRole);
 
-    public User findByEmail(String email);
+    public T findByEmail(String email);
+
+    public long count();
 
 
 }
