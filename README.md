@@ -37,21 +37,23 @@ This project is a web application designed to manage teachers and students' info
   - Grade Tracking: Record and update student grades.(not completeted yet)
   - User Roles: Manage different user roles and permissions (Admin, Teacher, Student).
 
-3.Technologies used
-  -Backend: Spring Boot, Spring Data JPA, Hibernate
-  -Frontend: Thymeleaf, HTML, CSS
-  -Database: MySQL
-  -Build Tool: Maven
+3. Technologies used
+  - Backend: Spring Boot, Spring Data JPA, Hibernate
+  - Frontend: Thymeleaf, HTML, CSS
+  - Database: MySQL
+  - Build Tool: Maven
 
-4.Getting Started
+4. Getting Started
+
+   
 Prerequisites:
-  -JDK 11 or higher
-  -IntelliJ IDEA
-  -MySQL
-  -Maven
-  -Git
+  - JDK 11 or higher
+  - IntelliJ IDEA
+  - MySQL
+  - Maven
+  - Git
 
-5.Usage and workflow explained
+5. Usage and workflow explained
 ... Once the application is running, an account for admin is automatically created with email address and password and some data for database is also initialized. Admin information can be used to login the system. Then admin can create information for teachers, students and subjects. This information will then be saved in database. Then teachers and students can use this information to login.
 Admin can management teachers, students and subjects information while teachers can handle information of students and scores. Meanwhile students are only allowed to see the displayed information.
 
