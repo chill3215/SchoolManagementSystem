@@ -1,11 +1,11 @@
-#SCHOLARLY - SCHOOL MANAGEMENT SYSTEM
+# SCHOLARLY - SCHOOL MANAGEMENT SYSTEM
 
 
 
 This project is a web application designed to manage teachers and students' information effeciently. Developed using Spring Boot, it leverages the power of modern web technologies to provide a robust, scalable, and easy-to-use platform for educational institutions.
 --web interface design is not completely finished yet
 
-##A.Table of Contents
+## A.Table of Contents
 1.Introduction
 2.Features
 3.Technologies used
@@ -16,7 +16,7 @@ This project is a web application designed to manage teachers and students' info
 8.Contact
 
 
-##B.Detailed information
+## B.Detailed information
 
 1.Introduction
   -SCHOLARLY is built to simplify the process of managing teacher and student information, including personal details and academic records. This system aims to automate and streamline various administrative tasks, thereby improving efficiency and accuracy.
@@ -46,15 +46,16 @@ Prerequisites:
   -Git
 
 5.Usage and workflow explained
-...Once the application is running, an account for admin is automatically created with email address and password and some data for database is also initialized. Admin information can be used to login the system. Then admin can create information for teachers, students and subjects. This information will then be saved in database. Then teachers and students can use this information to login.
+... Once the application is running, an account for admin is automatically created with email address and password and some data for database is also initialized. Admin information can be used to login the system. Then admin can create information for teachers, students and subjects. This information will then be saved in database. Then teachers and students can use this information to login.
 Admin can management teachers, students and subjects information while teachers can handle information of students and scores. Meanwhile students are only allowed to see the displayed information.
 
 
 6.Installation
   a.Clone the repository:
-    -git-bash:
-    +git clone https://github.com/your-username/student-management-system.git
-    +cd student-management-system
+    ```bash
+    git clone https://github.com/your-username/student-management-system.git
+    cd student-management-system
+    ```
   b.Configure the database:
     -Update the application.properties file in the src/main/resources directory with your MySQL database details.
       spring.datasource.url=jdbc:mysql://localhost:3306/management_system
