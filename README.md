@@ -21,19 +21,21 @@ This project is a web application designed to manage teachers and students' info
 1. Introduction
 
 
--SCHOLARLY is built to simplify the process of managing teacher and student information, including personal details and academic records. This system aims to automate and streamline various administrative tasks, thereby improving efficiency and accuracy.
+  SCHOLARLY is built to simplify the process of managing teacher and student information, including personal details and academic records. This system aims to automate and streamline various administrative tasks,   thereby improving efficiency and accuracy.
 
   
 
   Key Objectives:
-  -Ease of Use: Provide an intuitive interface for users, including administrators, teachers, and students.
-  -Scalability: Ensure the system can handle a growing number of students, data without compromising performance and additional functions without hinderance.
 
-2.Features
-  -Student and Teacher Registration: Add, update and manage teacher and student details.
-  -Subject Management: Create and manage subjects.
-  -Grade Tracking: Record and update student grades.(not completeted yet)
-  -User Roles: Manage different user roles and permissions (Admin, Teacher, Student).
+  
+  - Ease of Use: Provide an intuitive interface for users, including administrators, teachers, and students.
+  - Scalability: Ensure the system can handle a growing number of students, data without compromising performance and additional functions without hinderance.
+
+2. Features
+  - Student and Teacher Registration: Add, update and manage teacher and student details.
+  - Subject Management: Create and manage subjects.
+  - Grade Tracking: Record and update student grades.(not completeted yet)
+  - User Roles: Manage different user roles and permissions (Admin, Teacher, Student).
 
 3.Technologies used
   -Backend: Spring Boot, Spring Data JPA, Hibernate
