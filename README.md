@@ -1,17 +1,26 @@
 SCHOLARLY - SCHOOL MANAGEMENT SYSTEM
 
 
+
 This project is a web application designed to manage teachers and students' information effeciently. Developed using Spring Boot, it leverages the power of modern web technologies to provide a robust, scalable, and easy-to-use platform for educational institutions.
 --web interface design is not completely finished yet
 
 A.Table of Contents
+
 1.Introduction
+
 2.Features
+
 3.Technologies used
+
 4.Getting started
+
 5.Usage and workflow explained
+
 6.Installation
+
 7.Missing aspects
+
 8.Contact
 
 
