@@ -54,27 +54,27 @@ Prerequisites:
   - Git
 
 5. Usage and workflow explained
-... Once the application is running, an account for admin is automatically created with email address and password and some data for database is also initialized. Admin information can be used to login the system. Then admin can create information for teachers, students and subjects. This information will then be saved in database. Then teachers and students can use this information to login.
+   - Once the application is running, an account for admin is automatically created with email address and password and some data for database is also initialized. Admin information can be used to login the system. Then admin can create information for teachers, students and subjects. This information will then be saved in database. Then teachers and students can use this information to login.
 Admin can management teachers, students and subjects information while teachers can handle information of students and scores. Meanwhile students are only allowed to see the displayed information.
 
 
-6.Installation
-  a.Clone the repository:
+6. Installation
+  a. Clone the repository:
     ```bash
     git clone https://github.com/your-username/student-management-system.git
     cd student-management-system
     ```
-  b.Configure the database:
+  b. Configure the database:
     -Update the application.properties file in the src/main/resources directory with your MySQL database details.
       spring.datasource.url=jdbc:mysql://localhost:3306/management_system
       spring.datasource.username=your-username
       spring.datasource.password=your-password
       spring.jpa.hibernate.ddl-auto=update
-  c.Build the project:
+  c. Build the project:
       mvn clean install
-  d.Run the application:
+  d. Run the application:
     mvn spring-boot:run
-  e.Access the application:
+  e. Access the application:
     Open your browser and navigate to http://localhost:8080.
 
 7.Missing aspects
