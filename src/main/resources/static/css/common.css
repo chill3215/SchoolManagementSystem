@@ -114,3 +114,8 @@
     top: 10%;
     background: var(--background-color);
 }
+.container{
+    width: 95%;
+    height: 95%;
+    margin: auto;
+}

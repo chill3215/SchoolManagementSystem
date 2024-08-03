@@ -30,5 +30,8 @@ public class Subject {
 
     private String subjectCode;
 
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Teacher> teachers;
+
 
 }

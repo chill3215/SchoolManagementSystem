@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Scores</title>
+</head>
+<body>
+<h1>All Scores</h1>
+
+<!-- Display all scores -->
+<table>
+    <thead>
+    <tr>
+        <th>Score ID</th>
+        <th>Subject</th>
+        <th>Value</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="score, iterStat : ${student.results}">
+        <td th:text="${score.scoreId}"></td>
+        <td th:text="${score.subject.name}+' '+${score.subject.subjectCode}"></td>
+        <td th:text="${score.value}"></td>
+        <td>
+            <!-- Form for deleting score -->
+            <form th:action="@{'/delete/' + ${score.scoreId}}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+            <!-- Form for updating score -->
+            <form th:action="@{'/update/' + ${score.scoreId}}" method="post">
+                <button type="submit">Update</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Form for adding new score -->
+<div class="container2">
+    <form th:action="@{'/student/' + ${student.id} + '/score'}" method="post">
+        <label th:text="'Subject: '+${currentUser.subject.name}">Subject:</label>
+        <input type="hidden" name="subject.id" th:value="${currentUser.subject.id}">
+<!--        <select id="subject" name="subject.id">-->
+<!--            <option th:each="subject : ${subjects}" th:value="${subject.id}" th:text="${subject.name}"></option>-->
+<!--        </select>-->
+        <label for="value">Value:</label>
+        <input type="number" id="value" name="value" required>
+        <button type="submit">Add New Score</button>
+    </form>
+
+</div>
+</body>
+</html>

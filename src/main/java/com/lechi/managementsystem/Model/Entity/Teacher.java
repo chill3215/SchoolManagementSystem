@@ -23,8 +23,8 @@ import java.util.List;
 public class Teacher extends User {
 
     @ManyToOne
-    @JoinColumn(name = "subject_id", nullable = true)
-    @OnDelete(action = OnDeleteAction.SET_NULL)
+    @JoinColumn(name = "subject_id")
+//    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Subject subject;
 
     private String qualification;

@@ -1,0 +1,43 @@
+.table-box{
+    width: 80%;
+    margin: auto;
+
+}
+table{
+    width: 100%;
+    margin: auto;
+    font-size: 1.5rem;
+}
+table, th, td{
+    border: 1px solid black;
+}
+th, td{
+    padding: 2rem;
+    text-align: left;
+}
+td{
+    height: 6rem;
+}
+th.num{
+    width: 7%;
+}
+th.fullname{
+    width: 25%;
+}
+th.id{
+    width: 15%;
+}
+th.subject{
+    width: 10%;
+}
+th.dob{
+    width: 15%;
+}
+.button-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button-box button{
+    margin: 0;
+}

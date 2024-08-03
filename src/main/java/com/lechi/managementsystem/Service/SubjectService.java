@@ -17,4 +17,6 @@ public interface SubjectService {
     public Subject getById(Integer id);
 
     public long count();
+
+
 }
