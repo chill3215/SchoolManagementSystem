@@ -1,13 +1,11 @@
 package com.lechi.managementsystem.Model.Entity;
 
 import com.lechi.managementsystem.Model.Dto.StudentDTO;
-import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
 import java.util.List;
 
 
@@ -32,7 +30,7 @@ public class Student extends User {
     private String studentNumber;
 
     @ElementCollection
-    private List<Marks> results;
+    private List<Score> results;
 
     @ManyToMany(mappedBy = "students")
     private List<Teacher> teachers;

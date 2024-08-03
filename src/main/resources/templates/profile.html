@@ -18,7 +18,6 @@
                 <span>scholarly</span>
             </div>
             <a href="">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 <span>Log out</span>
             </a>
         </div>
@@ -53,136 +52,146 @@
                 <h1 class="title">Profiles</h1>
                 <input type="hidden" th:value="${user.id}">
                 <div class="fields_container">
-                    <div class="photo">
-                        <img src="/img/6_12A1_Le Thi Linh Chi-min.jpg" alt="">
-                        <h2 th:text="${user.userRole}"></h2>
-                        <div class="box-button">
-                            <form action="#" method="get" th:action="@{/{userRole}/{id}/updateForm(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}" th:if="${currentUser.email==user.email || currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=user.userRole}">
-                                <button class="button button_update" >UPDATE</button>
-                            </form>
-                            <form action="#" method="post" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()}, id=${user.id})}" th:if="${currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=user.userRole}">
-                                <input type="hidden" name="_method" value="delete">
-                                <button>DELETE</button>
-                            </form>
+                    <div class="photo_box">
+                        <div class="photo">
+                            <img src="/img/6_12A1_Le Thi Linh Chi-min.jpg" alt="">
+                            <h2 th:text="${user.userRole}"></h2>
+                            <div class="box-button">
+                                <form action="#" method="get" th:action="@{/{userRole}/{id}/updateForm(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}" th:if="${currentUser.email==user.email || currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=user.userRole}">
+                                    <button class="button button_update" >UPDATE</button>
+                                </form>
+                                <form action="#" method="post" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()}, id=${user.id})}" th:if="${currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=user.userRole}">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button>DELETE</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    <div class="box basic">
-                        <h1>General Information</h1>
-                        <div class="holder">
-                            <label>Full name: </label>
-                            <div><text th:text="${user.fullname}"></text></div>
-                        </div>
-
-
-                        <div class="holder">
-                            <label> Gender:</label>
-                            <div><text th:text="${user.gender.toString().toLowerCase()}"></text></div>
-                        </div>
-
-                        <div class="holder">
-                            <label> Date of birth:</label>
-                            <div><text th:text="${user.dob}"></text></div>
-                        </div>
-
-
-                        <div class="holder">
-                            <label>Email:</label>
-                            <div><text th:text="${user.email}"></text></div>
-                        </div>
-
-
-                        <div class="holder">
-                            <label>Phone number:</label>
-                            <div><text th:text="${user.phonenumber}"></text></div>
-                        </div>
-
-
-                        <div class="holder">
-                            <label>Address:</label>
-                            <div><text th:text="${user.address}"></text></div>
-                        </div>
-
-
 
                     </div>
-                    <div class="box specify for-teacher" th:if="${user.userRole.toString()=='TEACHER'}">
-                        <h1>Detailed information</h1>
-                        <div class="holder">
-                            <label> Teacher ID:</label>
-                            <div><text th:text="${user.teacherNumber}"></text></div>
+                    <div class="table">
+                        <h1>Personal Information</h1>
+                        <div class="box basic">
+    <!--                        <h1>General Information</h1>-->
+                            <div class="holder">
+                                <label>Full name: </label>
+                                <div><text th:text="${user.fullname}"></text></div>
+                            </div>
+
+
+                            <div class="holder">
+                                <label> Gender:</label>
+                                <div><text th:text="${user.gender.toString().toLowerCase()}"></text></div>
+                            </div>
+
+                            <div class="holder">
+                                <label> Date of birth:</label>
+                                <div><text th:text="${user.dob}"></text></div>
+                            </div>
+
+
+                            <div class="holder">
+                                <label>Email:</label>
+                                <div><text th:text="${user.email}"></text></div>
+                            </div>
+
+
+                            <div class="holder">
+                                <label>Phone number:</label>
+                                <div><text th:text="${user.phonenumber}"></text></div>
+                            </div>
+
+
+                            <div class="holder">
+                                <label>Address:</label>
+                                <div><text th:text="${user.address}"></text></div>
+                            </div>
+
+
+
                         </div>
+                        <div class="box specify for-teacher" th:if="${user.userRole.toString()=='TEACHER'}">
+                            <div class="holder">
+                                <label> Teacher ID:</label>
+                                <div><text th:text="${user.teacherNumber}"></text></div>
+                            </div>
 
-                        <div class="holder">
-                            <label>Nationality: </label>
-                            <div><text th:text="${user.nationality}"></text></div>
+                            <div class="holder">
+                                <label>Nationality: </label>
+                                <div><text th:text="${user.nationality}"></text></div>
+                            </div>
+
+
+                            <div class="holder">
+                                <label>Subject:</label>
+                                <div><text th:if="${user.subject !=null}" th:text="${user.subject.name}"></text></div>
+                            </div>
+
+                            <div class="holder">
+                                <label>Graduated from: </label>
+                                <div><text th:text="${user.school}"></text></div>
+                            </div>
+
+                            <div class="holder">
+                                <label>Qualification: </label>
+                                <div><text th:text="${user.qualification}"></text></div>
+                            </div>
+
+                            <div class="holder">
+                                <label>Year of entry: </label>
+                                <div><text th:text="${user.entryYear}"></text></div>
+                            </div>
+
+
+
+
                         </div>
+                        <div class="box specify for-student" th:if="${user.userRole.toString()=='STUDENT'}">
+                            <div class="holder">
+                                <label> Student ID:</label>
+                                <div><text th:text="${user.studentNumber}"></text></div>
+                            </div>
+
+                            <div class="holder">
+                                <label>Nationality: </label>
+                                <div><text th:text="${user.nationality}"></text></div>
+                            </div>
+
+                            <div class="holder">
+                                <label>Grade: </label>
+                                <div><text th:text="${user.grade}"></text></div>
+                            </div>
+
+                            <div class="holder">
+                                <label>Year of entry: </label>
+                                <div><text th:text="${user.entryYear}"></text></div>
+                            </div>
+
+                            <div class="holder">
+                                <label>Father's name: </label>
+                                <div><text th:text="${user.fatherName}"></text></div>
+                            </div>
 
 
-                        <div class="holder">
-                            <label>Subject:</label>
-                            <div><text th:if="${user.subject !=null}" th:text="${user.subject.name}"></text></div>
+                            <div class="holder">
+                                <label>Mother's name: </label>
+                                <div><text th:text="${user.motherName}"></text></div>
+                            </div>
+
                         </div>
-
-                        <div class="holder">
-                            <label>Graduated from: </label>
-                            <div><text th:text="${user.school}"></text></div>
-                        </div>
-
-                        <div class="holder">
-                            <label>Qualification: </label>
-                            <div><text th:text="${user.qualification}"></text></div>
-                        </div>
-
-                        <div class="holder">
-                            <label>Year of entry: </label>
-                            <div><text th:text="${user.entryYear}"></text></div>
-                        </div>
-
-
-
-
-                    </div>
-                    <div class="box specify for-student" th:if="${user.userRole.toString()=='STUDENT'}">
-                        <div class="holder">
-                            <label> Student ID:</label>
-                            <div><text th:text="${user.studentNumber}"></text></div>
-                        </div>
-
-                        <div class="holder">
-                            <label>Nationality: </label>
-                            <div><text th:text="${user.nationality}"></text></div>
-                        </div>
-
-                        <div class="holder">
-                            <label>Grade: </label>
-                            <div><text th:text="${user.grade}"></text></div>
-                        </div>
-
-                        <div class="holder">
-                            <label>Year of entry: </label>
-                            <div><text th:text="${user.entryYear}"></text></div>
-                        </div>
-
-                        <div class="holder">
-                            <label>Father's name: </label>
-                            <div><text th:text="${user.fatherName}"></text></div>
-                        </div>
-
-
-                        <div class="holder">
-                            <label>Mother's name: </label>
-                            <div><text th:text="${user.motherName}"></text></div>
-                        </div>
-
                     </div>
 
 
 
                 </div>
+                <div class="button">
+                    <form action="#" th:action="@{/student/{studentId}/score/all(studentId=${user.id})}" method="get">
+                        <button th:if="${user.userRole.toString()=='STUDENT'}">SCORES</button>
+                    </form>
+                    <form class="low-button" action="#" th:action="@{/{userRole}/all(userRole=${user.userRole.toString().toLowerCase()})}" method="get">
+                        <button th:text="${user.userRole.toString()=='TEACHER'? 'SEE OTHER TEACHERS':'SEE OTHER STUDENTS'}"></button>
+                    </form>
 
-                <form class="low-button" action="#" th:action="@{/{userRole}/all(userRole=${user.userRole.toString().toLowerCase()})}" method="get">
-                    <button th:text="${user.userRole.toString()=='TEACHER'? 'SEE OTHER TEACHERS':'SEE OTHER STUDENTS'}"></button>
-                </form>
+                </div>
 
 
             </div>

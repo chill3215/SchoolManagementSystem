@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TeacherRepository extends JpaRepository<Teacher, Integer> {
 
-    public Teacher getById(Integer id);
+    public Teacher getTeacherById(Integer id);
 
     public long count();
 

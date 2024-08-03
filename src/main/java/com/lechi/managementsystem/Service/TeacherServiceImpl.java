@@ -37,10 +37,10 @@ public class TeacherServiceImpl implements TeacherService{
 
     @Override
     public Teacher getById(Integer id){
-        return teacherRepository.getById(id);
+        return teacherRepository.getTeacherById(id);
     }
     public TeacherDTO getDTOById(Integer id){
-        return teacherRepository.getById(id).getTeacherDTO();
+        return teacherRepository.getTeacherById(id).getTeacherDTO();
     }
 
     @Override

@@ -9,15 +9,15 @@ import lombok.NoArgsConstructor;
 
 @Embeddable
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class Marks {
+public class Score {
+
+    private Integer scoreId;
 
     @OneToOne
     private Subject subject;
 
-    private int score;
+    private int value;
+
 
 
 }
