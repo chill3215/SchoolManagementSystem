@@ -1,5 +1,6 @@
 package com.lechi.managementsystem.Model.Entity;
 
+import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,7 +31,7 @@ public class User {
     private String email;
     private String password;
     private String address;
-    private String gender;
+    private Gender gender;
     private String phonenumber;
     private int entryYear;
     private String nationality;

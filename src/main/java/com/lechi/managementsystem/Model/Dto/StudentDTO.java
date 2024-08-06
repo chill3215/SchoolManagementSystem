@@ -1,6 +1,7 @@
 package com.lechi.managementsystem.Model.Dto;
 
 
+import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,7 +26,7 @@ public class StudentDTO {
     private String address;
     private String phonenumber;
     private LocalDate dob;
-    private String gender;
+    private Gender gender;
     private String studentNumber;
     private int entryYear;
     private String nationality;

@@ -1,6 +1,7 @@
 package com.lechi.managementsystem.Model.Dto;
 
 import com.lechi.managementsystem.Model.Entity.Subject;
+import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class TeacherDTO {
     private LocalDate dob;
     private String qualification;
     private String phonenumber;
-    private String gender;
+    private Gender gender;
     private String address;
     private String teacherNumber;
     private int entryYear;
