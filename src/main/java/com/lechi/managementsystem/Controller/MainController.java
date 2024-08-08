@@ -54,6 +54,10 @@ public class MainController {
         return "error";
     }
 
+    @GetMapping("/main")
+    public String home(){
+        return "portal";
+    }
     @ModelAttribute("currentUser")
     public User getCurrentUser(Model model){
         return new User();

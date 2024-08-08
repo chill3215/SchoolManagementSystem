@@ -35,7 +35,7 @@ th.dob{
 }
 .button-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 .button-box button{

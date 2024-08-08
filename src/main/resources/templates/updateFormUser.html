@@ -24,15 +24,15 @@
         </div>
         <div class="side-bar">
             <div class="menu">
-                <a href="">
+                <a href="/main">
                     <i class="fa-solid fa-house-user"></i>
                     <span th:text="Dashboard"></span>
                 </a>
-                <a href="/teacher/all"  class="active">
+                <a href="/teacher/all"  th:class="${user.userRole.toString()=='TEACHER'? 'active':'normal'}">
                     <i class="fa-solid fa-chalkboard-user"></i>
                     <span>Teachers</span>
                 </a>
-                <a href="/student/all">
+                <a href="/student/all" th:class="${user.userRole.toString()=='STUDENT'? 'active':'normal'}">
                     <i class="fa-solid fa-users"></i>
                     <span>Students</span>
                 </a>
@@ -168,7 +168,7 @@
                                             <input type="year" name="entryYear" min="1950" th:value="${user.entryYear}" th:field="*{entryYear}">
                                         </div>
 
-                                        <div class="holder">
+                                    <    <div class="holder">
                                             <label>Father's name: </label>
                                             <input type="text" name="fatherName" th:value="${user.fatherName}" th:field="*{fatherName}">
                                         </div>

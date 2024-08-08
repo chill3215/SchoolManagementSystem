@@ -10,23 +10,67 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Change information form</h1>
-<form action="#" method="post" th:action="@{/subject/{id}/update(id=${subject.id})}" th:object="${subject}">
-    <input type="hidden" th:value="${subject.id}" th:field="*{id}">
-    <div class="fields_container">
-        <label>Subject code: </label>
-        <input type="text" name="subjectCode" th:value="${subject.subjectCode}" th:field="*{subjectCode}">
+<div class="fullscreen">
+    <div class="nav-bar">
+        <div class="logo">
+            <span>scholarly</span>
+        </div>
+        <a href="">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Log out</span>
+        </a>
+    </div>
+    <div class="side-bar">
+        <div class="menu">
+            <a href="/main">
+                <i class="fa-solid fa-house-user"></i>
+                <span th:text="Dashboard"></span>
+            </a>
+            <a href="/teacher/all">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Teachers</span>
+            </a>
+            <a href="/student/all">
+                <i class="fa-solid fa-users"></i>
+                <span>Students</span>
+            </a>
+            <a href="/subject/all"  class="active">
+                <i class="fa-solid fa-school"></i>
+                <span>Subjects</span>
+            </a>
+            <a href="">
+                <i class="fa-solid fa-star"></i>
+                <span>Marks</span>
+            </a>
 
-
-        <label>Room:</label>
-        <input type="text" name="room" th:value="${subject.room}" th:field="*{room}">
-
-        <label>Credit points:</label>
-        <input type="text" name="creditPoints" th:value="${subject.creditPoints}" th:field="*{creditPoints}">
-
+        </div>
 
     </div>
-    <button>Submit</button>
-</form>
+    <div class="page-content">
+        <h1>Change Subject Information</h1>
+        <div class="content">
+            <form action="#" method="post" th:action="@{/subject/{id}/update(id=${subject.id})}" th:object="${subject}">
+                <input type="hidden" th:value="${subject.id}" th:field="*{id}">
+                <div class="fields_container">
+                    <label>Subject code: </label>
+                    <input type="text" name="subjectCode" th:value="${subject.subjectCode}" th:field="*{subjectCode}">
+
+
+                    <label>Room:</label>
+                    <input type="text" name="room" th:value="${subject.room}" th:field="*{room}">
+
+                    <label>Credit points:</label>
+                    <input type="text" name="creditPoints" th:value="${subject.creditPoints}" th:field="*{creditPoints}">
+
+
+                </div>
+                <button>Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
 </body>
 </html>

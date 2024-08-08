@@ -10,37 +10,80 @@
     <title></title>
 </head>
 <body>
-<div class="container">
-    <h1 th:text="${subject.name}"></h1>
-    <input type="hidden" th:value="${subject.id}">
-    <div class="fields_container">
+<div class="fullscreen">
+    <div class="nav-bar">
+        <div class="logo">
+            <span>scholarly</span>
+        </div>
+        <a href="">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Log out</span>
+        </a>
+    </div>
+    <div class="side-bar">
+        <div class="menu">
+            <a href="/main">
+                <i class="fa-solid fa-house-user"></i>
+                <span th:text="Dashboard"></span>
+            </a>
+            <a href="/teacher/all">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Teachers</span>
+            </a>
+            <a href="/student/all">
+                <i class="fa-solid fa-users"></i>
+                <span>Students</span>
+            </a>
+            <a href="/subject/all"  class="active">
+                <i class="fa-solid fa-school"></i>
+                <span>Subjects</span>
+            </a>
+            <a href="">
+                <i class="fa-solid fa-star"></i>
+                <span>Marks</span>
+            </a>
 
-        <label>Subject code: </label>
-        <text th:text="${subject.subjectCode}"></text>
-
-        <label> Room:</label>
-        <text th:text="${subject.room}"></text>
-
-        <label>Credit points:</label>
-        <text th:text="${subject.creditPoints}"></text>
-
-
+        </div>
 
     </div>
-    <form action="#" method="get" th:action="@{/subject/{id}/updateForm(id=${subject.id})}" th:if="${currentUser.userRole.toString()!='STUDENT'}">
-        <button class="button button_update" >UPDATE</button>
-    </form>
-    <form action="/subject/all" method="get">
-        <button>SEE ALL SUBJECTS</button>
-    </form>
-    <form action="#" method="post" th:action="@{/subject/{id}(id=${subject.id})}" th:if="${currentUser.userRole.toString()=='ADMIN'}">
-        <input type="hidden" name="_method" value="delete">
-        <button>DELETE</button>
-    </form>
+    <div class="page-content">
+        <h1>New Subject</h1>
+        <div class="content">
+            <h1 th:text="${subject.name}"></h1>
+            <input type="hidden" th:value="${subject.id}">
+            <div class="fields_container">
 
+                <label>Subject code: </label>
+                <text th:text="${subject.subjectCode}"></text>
+
+                <label> Room:</label>
+                <text th:text="${subject.room}"></text>
+
+                <label>Credit points:</label>
+                <text th:text="${subject.creditPoints}"></text>
+
+
+
+            </div>
+            <form action="#" method="get" th:action="@{/subject/{id}/updateForm(id=${subject.id})}" th:if="${currentUser.userRole.toString()!='STUDENT'}">
+                <button class="button button_update" >UPDATE</button>
+            </form>
+            <form action="/subject/all" method="get">
+                <button>SEE ALL SUBJECTS</button>
+            </form>
+            <form action="#" method="post" th:action="@{/subject/{id}(id=${subject.id})}" th:if="${currentUser.userRole.toString()=='ADMIN'}">
+                <input type="hidden" name="_method" value="delete">
+                <button>DELETE</button>
+            </form>
+
+
+
+        </div>
+    </div>
 
 
 </div>
+
 
 </body>
 </html>

@@ -1,0 +1,42 @@
+.container{
+    width: 90%;
+    margin: auto;
+
+}
+table{
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+
+}
+th{
+    height: 6rem;
+    font-weight: bolder;
+    font-size: 1.8rem;
+}
+td{
+    height: 5rem;
+}
+th,td{
+    border: 0.1rem solid black;
+}
+th.Num{
+    width: 10%;
+}
+th.name{
+    width: 20%;
+}
+th.year{
+    width: 15%;
+}
+th.subcode{
+    width: 15%;
+}
+.button-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.button-box button{
+    margin: 0;
+}
