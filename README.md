@@ -59,7 +59,7 @@ Admin can management teachers, students and subjects information while teachers 
 6. Installation
    - Clone the repository:
     ```bash
-    git clone https://github.com/your-username/SchoolManagementSystem
+    git clone https://github.com/chill3215/SchoolManagementSystem
     cd SchoolManagementSystem
     ```
   - Configure the database:
