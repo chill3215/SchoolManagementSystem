@@ -59,8 +59,8 @@ Admin can management teachers, students and subjects information while teachers 
 6. Installation
    - Clone the repository:
     ```bash
-    git clone https://github.com/your-username/student-management-system.git
-    cd student-management-system
+    git clone https://github.com/your-username/SchoolManagementSystem
+    cd SchoolManagementSystem
     ```
   - Configure the database:
     + Update the application.properties file in the src/main/resources directory with your MySQL database details.
