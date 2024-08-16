@@ -81,6 +81,8 @@ Admin can management teachers, students and subjects information while teachers 
 - Access the application:
     + Open your browser and navigate to http://localhost:8080.
 
+- Use the username and password of admin in the database to log in
+
 7. Missing aspects
   - Spring security for authorization
   - Web interface is not designed responsively
