@@ -35,6 +35,7 @@ public class TeacherServiceImpl implements TeacherService{
         }
         else{
             teacher.setUserRole(UserRole.TEACHER);
+            teacher.setPassword(RandomPasswortGenerator.generatePassword());
             teacherRepository.save(teacher);
         }
     }

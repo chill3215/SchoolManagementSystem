@@ -40,6 +40,7 @@ public class StudentServiceImpl implements StudentService{
         }
         else{
             student.setUserRole(UserRole.STUDENT);
+            student.setPassword(RandomPasswortGenerator.generatePassword());
             studentRepository.save(student);
         }
     }
