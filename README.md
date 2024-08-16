@@ -52,17 +52,17 @@ This project is a web application designed to manage teachers and students' info
   - Git
 
 5. Usage and workflow explained
-   - Once the application is running, an account for admin is automatically created with email address and password and some data for database is also initialized. Admin information can be used to login the system. Then admin can create information for teachers, students and subjects. This information will then be saved in database. Then teachers and students can use this information to login.
+- Once the application is running, an account for admin is automatically created with email address and password and some data for database is also initialized. Admin information can be used to login the system. Then admin can create information for teachers, students and subjects. This information will then be saved in database. Then teachers and students can use this information to login.
 Admin can management teachers, students and subjects information while teachers can handle information of students and scores. Meanwhile students are only allowed to see the displayed information.
 
 
 6. Installation
-   - Clone the repository:
+- Clone the repository:
     ```bash
-    git clone https://github.com/your-username/student-management-system.git
-    cd student-management-system
+    git clone https://github.com/chill3215/SchoolManagementSystem
+    cd SchoolManagementSystem
     ```
-  - Configure the database:
+- Configure the database:
     + Update the application.properties file in the src/main/resources directory with your MySQL database details.
       ```java
       spring.datasource.url=jdbc:mysql://localhost:3306/management_system
@@ -70,16 +70,18 @@ Admin can management teachers, students and subjects information while teachers 
       spring.datasource.password=your-password
       spring.jpa.hibernate.ddl-auto=update
       ```
-  - Build the project:
+- Build the project:
     ```bash
       mvn clean install
     ```
-  - Run the application:
+- Run the application:
     ```bash
     mvn spring-boot:run
     ```
-  - Access the application:
+- Access the application:
     + Open your browser and navigate to http://localhost:8080.
+
+- Use the username and password of admin in the database to log in
 
 7. Missing aspects
   - Spring security for authorization
