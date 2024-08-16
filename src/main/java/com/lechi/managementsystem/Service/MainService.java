@@ -1,6 +1,6 @@
 package com.lechi.managementsystem.Service;
 
-import com.lechi.managementsystem.Model.Enum.UserRole;
+import com.lechi.managementsystem.Error.UserAlreadyExists;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ public interface MainService<Obj, Dto> {
 
     public List<Dto> getAll();
 
-    public void add(Obj o);
+    public void add(Obj o) throws UserAlreadyExists;
 
 
     public Dto getDTOById(Integer id);

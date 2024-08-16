@@ -22,12 +22,12 @@
     align-items: center;
 }
 img{
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     border: double 5px transparent;
-    border-radius: 50%;
-    background: var(--theme-color);
+    border-radius: 20%;
+    background: var(--box-background-color);
     display: inline-block;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }

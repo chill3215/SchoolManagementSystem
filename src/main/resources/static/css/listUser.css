@@ -11,12 +11,12 @@ table{
 table, th, td{
     border: 1px solid black;
 }
-th, td{
+td{
     padding: 2rem;
     text-align: left;
 }
 td{
-    height: 6rem;
+    height: 100%;
 }
 th.num{
     width: 7%;

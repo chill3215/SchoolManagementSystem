@@ -1,5 +1,6 @@
 package com.lechi.managementsystem.Service;
 
+import com.lechi.managementsystem.Error.UserAlreadyExists;
 import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Score;
 import com.lechi.managementsystem.Model.Entity.Student;
@@ -10,7 +11,6 @@ import com.lechi.managementsystem.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +22,9 @@ public class StudentServiceImpl implements StudentService{
     @Autowired
     StudentRepository studentRepository;
 
+    @Autowired
+    UserRepository<User> userRepository;
+
 
 
     @Override
@@ -31,9 +34,14 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public void add(Student student) {
-        student.setUserRole(UserRole.STUDENT);
-        studentRepository.save(student);
+    public void add(Student student) throws UserAlreadyExists {
+        if(userRepository.findByEmail(student.getEmail())!=null){
+            throw new UserAlreadyExists("email has been used");
+        }
+        else{
+            student.setUserRole(UserRole.STUDENT);
+            studentRepository.save(student);
+        }
     }
 
 //    @Override

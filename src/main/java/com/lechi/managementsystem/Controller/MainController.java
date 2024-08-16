@@ -1,5 +1,6 @@
 package com.lechi.managementsystem.Controller;
 
+import com.lechi.managementsystem.Error.UserNotFound;
 import com.lechi.managementsystem.Model.Entity.Subject;
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Repository.SubjectRepository;
@@ -43,15 +44,18 @@ public class MainController {
     }
 
     @GetMapping("/authen")
-    public String authenticate(@ModelAttribute User user, Model model){
+    public String authenticate(@ModelAttribute User user, Model model) throws UserNotFound{
         User foundUser = userService.findByEmail(user.getEmail());
-        if (foundUser.getPassword().equals(user.getPassword())
-                && foundUser.getUserRole().equals(user.getUserRole())) {
+        if (foundUser==null || !foundUser.getPassword().equals(user.getPassword())
+                || !foundUser.getUserRole().equals(user.getUserRole())) {
+            throw new UserNotFound("try again with another combination of email and password");
+        }
+        else{
             model.addAttribute("currentUser", foundUser);
-            model.addAttribute("user", foundUser);
             return "portal";
         }
-        return "error";
+
+
     }
 
     @GetMapping("/main")

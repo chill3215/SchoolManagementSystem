@@ -54,7 +54,9 @@
                 <div class="fields_container">
                     <div class="photo_box">
                         <div class="photo">
-                            <img src="/img/6_12A1_Le Thi Linh Chi-min.jpg" alt="">
+                            <img th:if="${user.userRole.toString()=='TEACHER'}" th:src="${user.gender.toString()=='FEMALE'? '/img/female_teacher.png': '/img/male_teacher.png'}" alt="">
+                            <img th:if="${user.userRole.toString()=='STUDENT'}" th:src="${user.gender.toString()=='FEMALE'? '/img/female_student.png':'/img/male_student.png'}" alt="">
+
                             <h2 th:text="${user.userRole}"></h2>
                             <div class="box-button">
                                 <form action="#" method="get" th:action="@{/{userRole}/{id}/updateForm(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}" th:if="${currentUser.email==user.email || currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=user.userRole}">

@@ -1,10 +1,12 @@
 package com.lechi.managementsystem.Service;
 
+import com.lechi.managementsystem.Error.UserAlreadyExists;
 import com.lechi.managementsystem.Model.Dto.TeacherDTO;
 import com.lechi.managementsystem.Model.Entity.Teacher;
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import com.lechi.managementsystem.Repository.TeacherRepository;
+import com.lechi.managementsystem.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,9 @@ public class TeacherServiceImpl implements TeacherService{
     @Autowired
     TeacherRepository teacherRepository;
 
+    @Autowired
+    UserRepository<User> userRepository;
+
     @Override
     public List<TeacherDTO> getAll() {
 
@@ -24,9 +29,14 @@ public class TeacherServiceImpl implements TeacherService{
     }
 
     @Override
-    public void add(Teacher teacher) {
-        teacher.setUserRole(UserRole.TEACHER);
-        teacherRepository.save(teacher);
+    public void add(Teacher teacher) throws UserAlreadyExists {
+        if(userRepository.findByEmail(teacher.getEmail())!=null){
+            throw new UserAlreadyExists("email has been used");
+        }
+        else{
+            teacher.setUserRole(UserRole.TEACHER);
+            teacherRepository.save(teacher);
+        }
     }
 //
 //    @Override

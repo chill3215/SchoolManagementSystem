@@ -52,20 +52,9 @@
         <div class="container">
             <h1 class="title" th:text="'Register new '+${role.toString().toLowerCase()}"></h1>
             <div class="fields_container">
-                <div class="photo_box">
-                    <div class="photo">
-                        <img src="/img/6_12A1_Le Thi Linh Chi-min.jpg" alt="">
-                        <h2 th:text="${role.toString()}"></h2>
-                        <div class="box-button">
-                            <button class="button button_update" >UPDATE</button>
-                            <button>DELETE</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
                 <div class="table">
                     <h1>Register form</h1>
-                    <form action="#" method="post" th:action="@{/{role}(role=${role})}" th:object="${user}" >
+                    <form action="#" method="post" th:action="@{/{role}(role=${role.toString().toLowerCase()})}" th:object="${user}" >
                     <input type="hidden" th:field="*{id}">
                         <div class="big_box">
                             <div class="box basic">
@@ -81,7 +70,6 @@
                                         <option value="" disabled selected>Please choose one option</option>
                                         <option value="MALE">Male</option>
                                         <option value="FEMALE">Female</option>
-                                        <option value="NOT_SPECIFIED">Not specified</option>
                                     </select>
                                 </div>
 
@@ -93,7 +81,7 @@
 
                                 <div class="holder">
                                     <label>Email:</label>
-                                    <input type="text" name="email" th:field="*{email}">
+                                    <input type="email" name="email" th:field="*{email}" required>
                                 </div>
 
 
