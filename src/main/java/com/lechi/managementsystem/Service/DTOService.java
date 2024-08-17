@@ -4,12 +4,11 @@ import com.lechi.managementsystem.Error.UserCannotBeAddedException;
 
 import java.util.List;
 
-public interface MainService<Obj, Dto> {
+public interface DTOService<Obj, Dto> {
 
     public List<Dto> getAll();
 
     public void add(Obj o) throws UserCannotBeAddedException;
-
 
     public Dto getDTOById(Integer id);
 

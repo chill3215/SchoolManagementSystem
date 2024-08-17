@@ -24,7 +24,6 @@ public class Teacher extends User {
 
     @ManyToOne
     @JoinColumn(name = "subject_id")
-//    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Subject subject;
 
     private String qualification;
@@ -32,8 +31,6 @@ public class Teacher extends User {
     private String teacherNumber;
 
     private String school;
-
-
 
     @ManyToMany
     private List<Student> students;

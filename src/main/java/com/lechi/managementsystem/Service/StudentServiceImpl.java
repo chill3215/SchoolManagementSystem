@@ -29,7 +29,6 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public List<StudentDTO> getAll() {
-
          return studentRepository.findAll().stream().map(Student::getStudentDTO).collect(Collectors.toList());
     }
 
@@ -40,15 +39,10 @@ public class StudentServiceImpl implements StudentService{
         }
         else{
             student.setUserRole(UserRole.STUDENT);
-            student.setPassword(RandomPasswortGenerator.generatePassword());
+            student.setPassword(RandomPasswordGenerator.generatePassword());
             studentRepository.save(student);
         }
     }
-
-//    @Override
-//    public StudentDTO findByEmail(String email) {
-//        return studentRepository.findByEmail(email).getStudentDTO();
-//    }
 
     @Override
     public StudentDTO getDTOById(Integer id) {
@@ -83,8 +77,6 @@ public class StudentServiceImpl implements StudentService{
             existingStudent.setEntryYear(updatedStudent.getEntryYear());
             studentRepository.save(existingStudent);
         }
-
-
     }
 
     @Override
@@ -100,7 +92,7 @@ public class StudentServiceImpl implements StudentService{
 
     public Score getScoreByScoreId(Integer studentId, Integer scoreId) {
         return studentRepository.getStudentById(studentId).getResults().stream()
-                .filter(score1 -> (score1.getScoreId() == scoreId)).findAny().orElse(null);
+                .filter(score1 -> (Objects.equals(score1.getScoreId(), scoreId))).findAny().orElse(null);
     }
 
     public void addScore(Integer studentId, Score score){
@@ -109,8 +101,6 @@ public class StudentServiceImpl implements StudentService{
         result.add(score);
         foundStudent.setResults(result);
         studentRepository.save(foundStudent);
-
-
     }
 
     public void updateScore(Integer id, Score updatedScore) {
@@ -123,8 +113,6 @@ public class StudentServiceImpl implements StudentService{
             foundScore.ifPresent(score -> score.setValue(updatedScore.getValue()));
             studentRepository.save(foundStudent);
         }
-
-
     }
 
     public void deleteScore(Integer id, Integer deletedScoreId){
@@ -134,6 +122,5 @@ public class StudentServiceImpl implements StudentService{
                 .toList();
         foundStudent.setResults(newResults);
         studentRepository.save(foundStudent);
-
     }
 }

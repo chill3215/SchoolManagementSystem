@@ -6,7 +6,7 @@ import com.lechi.managementsystem.Model.Entity.Student;
 
 import java.util.List;
 
-public interface StudentService extends MainService<Student, StudentDTO>{
+public interface StudentService extends DTOService<Student, StudentDTO> {
 
     public List<Score> getScoreOfStudentById(Integer id);
 

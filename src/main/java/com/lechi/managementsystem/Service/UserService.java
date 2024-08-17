@@ -6,7 +6,7 @@ import com.lechi.managementsystem.Model.Enum.UserRole;
 
 import java.util.List;
 
-public interface UserMainService{
+public interface UserService {
     List<User> getAll();
 
     public User findByUserRole(UserRole userRole);

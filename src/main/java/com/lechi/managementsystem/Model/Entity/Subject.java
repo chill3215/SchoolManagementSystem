@@ -23,7 +23,6 @@ public class Subject {
 
     private String name;
 
-
     private String room;
 
     private int creditPoints;

@@ -23,6 +23,7 @@ public class StudentController {
 
     @Autowired
     SubjectService subjectService;
+
     @GetMapping("/form")
     public String getFormStudent(Model model){
         model.addAttribute("user", new Student());
@@ -35,13 +36,11 @@ public class StudentController {
         model.addAttribute("users", studentService.getAll());
         model.addAttribute("role", UserRole.STUDENT);
         model.addAttribute("currentUser", user);
-//        User currentUser = getCurrentUser()
         return "listUser";
     }
 
     @PostMapping("")
     public String addStudent(@ModelAttribute Student student) throws UserCannotBeAddedException {
-
         studentService.add(student);
         return "redirect:/student/all";
     }
@@ -69,20 +68,19 @@ public class StudentController {
     }
 
     @PostMapping("{id}")
-    public String handelDelete(@PathVariable("id") Integer id, @RequestParam("_method") String method, Model model){
+    public String handleDelete(@PathVariable("id") Integer id, @RequestParam("_method") String method, Model model){
         if(method.equalsIgnoreCase("delete")){
             return deleteStudent(id);
         }
         model.addAttribute("message", "oops! this user can not be deleted");
         return "error";
-
     }
+
     @DeleteMapping("{id}")
     public String deleteStudent(@PathVariable("id") Integer id){
         studentService.deleteById(id);
         return "redirect:/student/all";
     }
-
 
     @GetMapping("/{studentId}/score/all")
     public String getScore(@PathVariable("studentId") Integer studentId, Model model, @SessionAttribute("currentUser") User user){
@@ -101,12 +99,13 @@ public class StudentController {
     @GetMapping("/{studentId}/updateScore/{scoreId}")
     public String getUpdateScore(@PathVariable("studentId") Integer studentId, Model model, @PathVariable("scoreId") Integer scoreId) {
         model.addAttribute("score", studentService.getById(studentId).getSubjects());
-        return "redirect:/student"+studentId+"/score/all";
+        return "redirect:/student/"+studentId+"/score/all";
     }
+
     @PostMapping("/{studentId}/updateScore/{scoreId}")
     public String updateScore(@PathVariable("studentId") Integer studentId, Model model, @ModelAttribute Score score,  @PathVariable("scoreId") Integer scoreId) {
         studentService.updateScore(studentId, score);
-        return "redirect:/student"+studentId+"/score/all";
+        return "redirect:/student/"+studentId+"/score/all";
     }
 
     @PostMapping("/{studentId}/score/{scoreId}")
@@ -114,7 +113,7 @@ public class StudentController {
         if(method.equalsIgnoreCase("delete")){
             return deleteScore(studentId, scoreId);
         }
-        model.addAttribute("message", "oops! this user can not be deleted");
+        model.addAttribute("message", "oops! this score can not be deleted");
         return "error";
 
     }
@@ -122,7 +121,7 @@ public class StudentController {
     @DeleteMapping("/{studentId}/score/{scoreId}")
     public String deleteScore(@PathVariable("studentId") Integer studentId, @PathVariable("scoreId") Integer deletedScoreId) {
         studentService.deleteScore(studentId, deletedScoreId);
-        return "redirect:/student"+studentId+"/score/all";
+        return "redirect:/student/"+studentId+"/score/all";
     }
 
 }

@@ -46,12 +46,10 @@ public class SubjectController {
         }
         model.addAttribute("message", "oops! this subject can not be deleted");
         return "error";
-
     }
 
     @DeleteMapping("/")
     public String deleteSubject(Integer id){
-
         subjectService.delete(id);
         return "redirect:/subject/all";
     }

@@ -2,25 +2,26 @@
     font-size: 2.5rem;
 }
 
-
 .fields_container{
     display: flex;
     width: 90%;
     height: 46rem;
-
 }
+
 .photo_box{
     flex: 1;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 6fr;
 }
+
 .photo{
     grid-row: 2/8;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 img{
     width: 180px;
     height: 180px;
@@ -36,38 +37,42 @@ img{
     display: flex;
     justify-content: center;
 }
+
 .box-button button{
     margin: 1rem;
 }
+
 .table{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 6fr;
     flex: 3;
-
 }
+
 .table h1{
     grid-column: 1/3;
     grid-row:1/2;
 }
+
 .box{
     padding: 2rem;
     border: none;
     justify-content: center;
 }
+
 .basic{
     border-radius: 2rem 0 0 2rem;
     background: var(--gradient-color);
     grid-column: 1/2;
     grid-row:2/8;
 }
+
 .specify{
     border-radius: 0 2rem 2rem 0;
     background: var(--gradient-color-reverse);
     grid-column: 2/3;
     grid-row: 2/8;
 }
-
 
 .box .holder{
     padding-bottom: 2rem;
@@ -83,7 +88,6 @@ img{
     min-width: 12rem;
 }
 
-
 .box .holder div{
     height: 4rem;
     border-radius: 20px;
@@ -97,11 +101,10 @@ img{
 }
 
 .box text{
-
     line-height: 8px;
     font-size: 1.5rem;
-
 }
+
 .button{
     display: flex;
     justify-content: space-between;

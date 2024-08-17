@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/commonStructure.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/updateFormUser.css">
@@ -53,12 +53,6 @@
                 <h1 class="title">Update Profiles</h1>
                 <input type="hidden" th:value="${user.id}">
                 <div class="fields_container">
-                    <div class="photo_box">
-                        <div class="photo">
-                            <img src="/img/6_12A1_Le Thi Linh Chi-min.jpg" alt="">
-                            <h2 th:text="${user.userRole}"></h2>
-                        </div>
-                    </div>
                     <div class="table">
                         <h1>Change information form</h1>
                         <form action="#" method="post" th:action="@{/{userRole}/{id}/updated(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}" th:object="${user}">
@@ -69,7 +63,6 @@
                                             <label>Full name: </label>
                                             <input type="text" name="firstname" th:value="${user.fullname}" th:field="*{fullname}">
                                         </div>
-
 
                                         <div class="holder">
                                             <label> Gender:</label>
@@ -85,25 +78,20 @@
                                             <input type="date" name="dob" th:value="${user.dob}" th:field="*{dob}">
                                         </div>
 
-
                                         <div class="holder">
                                             <label>Email:</label>
                                             <input type="text" name="email" th:value="${user.email}" th:field="*{email}">
                                         </div>
-
 
                                         <div class="holder">
                                             <label>Phone number:</label>
                                             <input type="text" name="phonenumber" th:value="${user.phonenumber}" th:field="*{phonenumber}">
                                         </div>
 
-
                                         <div class="holder">
                                             <label>Address:</label>
                                             <input type="text" name="address" th:value="${user.address}" th:field="*{address}">
                                         </div>
-
-
 
                                     </div>
 
@@ -142,9 +130,6 @@
                                             <input type="year" name="entryYear" min="1950" th:value="${user.entryYear}" th:field="*{entryYear}">
                                         </div>
 
-
-
-
                                     </div>
                                     <div class="box specify for-student" th:if="${user.userRole.toString()=='STUDENT'}">
                                         <div class="holder">
@@ -171,7 +156,6 @@
                                             <label>Father's name: </label>
                                             <input type="text" name="fatherName" th:value="${user.fatherName}" th:field="*{fatherName}">
                                         </div>
-
 
                                         <div class="holder">
                                             <label>Mother's name: </label>

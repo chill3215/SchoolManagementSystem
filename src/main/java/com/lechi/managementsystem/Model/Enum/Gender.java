@@ -9,7 +9,6 @@ public enum Gender {
 
     private final String displayName;
 
-
     Gender(String displayName) {
         this.displayName=displayName;
     }

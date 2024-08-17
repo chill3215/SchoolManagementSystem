@@ -10,7 +10,9 @@ import lombok.experimental.SuperBuilder;
 public class CustomException extends Exception{
 
     private String exceptionName;
+
     private String explanation;
+
     private String instruction;
 
     public CustomException(String exceptionName, String explanation, String instruction) {

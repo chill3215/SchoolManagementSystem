@@ -5,7 +5,7 @@ import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Service.StudentService;
 import com.lechi.managementsystem.Service.SubjectService;
 import com.lechi.managementsystem.Service.TeacherService;
-import com.lechi.managementsystem.Service.UserMainService;
+import com.lechi.managementsystem.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class MainController {
 
     @Autowired
-    private UserMainService userService;
+    private UserService userService;
 
     @Autowired
     private StudentService studentService;
@@ -60,9 +60,6 @@ public class MainController {
         return new User();
     }
 
-
-    //auf gleicher Klasse, ist nicht erforderlich nochmal die Attribute zu definieren
-    //auf anderer Klasse, ist mit @SessionAttribute zu annotieren, um Attribute in Session abzurufen und dann in Model hinzuzufügen
     @ModelAttribute
     public void infoPortal(Model model){
         model.addAttribute("countUsers", userService.count());

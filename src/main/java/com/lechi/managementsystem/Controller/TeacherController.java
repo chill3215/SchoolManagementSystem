@@ -22,13 +22,11 @@ public class TeacherController {
     @Autowired
     SubjectService subjectService;
 
-
     @GetMapping("/form")
     public String getFormTeacher(Model model){
         model.addAttribute("user", new Teacher());
         model.addAttribute("role", UserRole.TEACHER);
         model.addAttribute("subjects", subjectService.getAll());
-//        model.addAttribute("teacherId", true);
         return "formUser";
     }
 
@@ -42,7 +40,6 @@ public class TeacherController {
 
     @PostMapping("")
     public String addTeacher(@ModelAttribute Teacher teacher) throws UserCannotBeAddedException {
-        Integer subjectId = teacher.getSubject().getId();
         teacherService.add(teacher);
         return "redirect:/teacher/all";
     }
@@ -53,7 +50,6 @@ public class TeacherController {
         model.addAttribute("user", foundTeacher);
         model.addAttribute("currentUser", user);
         return "profile";
-
     }
 
     @GetMapping("/{id}/updateForm")
@@ -77,14 +73,12 @@ public class TeacherController {
         }
         model.addAttribute("message", "oops! this user can not be deleted");
         return "error";
-
     }
+
     @DeleteMapping("{id}")
     public String deleteTeacher(@PathVariable("id") Integer id){
-
         teacherService.deleteById(id);
         return "redirect:/teacher/all";
-
     }
 
 

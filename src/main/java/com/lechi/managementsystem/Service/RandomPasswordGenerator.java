@@ -2,7 +2,7 @@ package com.lechi.managementsystem.Service;
 
 import java.security.SecureRandom;
 
-public class RandomPasswortGenerator {
+public class RandomPasswordGenerator {
 
     private static final String CHARACTERS ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+=<>?";
 

@@ -84,8 +84,6 @@ public class SubjectServiceImpl implements SubjectService{
                 .subjectCode("P104")
                 .build());
 
-
-
         subjects.forEach(subject -> {
             if(!subjectRepository.existsBySubjectCode(subject.getSubjectCode()))
                 subjectRepository.save(subject);

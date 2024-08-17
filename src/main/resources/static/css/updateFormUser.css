@@ -2,9 +2,11 @@
 .big_box{
     display: flex;
 }
+
 .box{
     flex:1;
 }
+
 .box .holder input, select{
     height: 4rem;
     border-radius: 20px;
@@ -19,10 +21,8 @@
 }
 
 .box text{
-
     line-height: 8px;
     font-size: 1.5rem;
-
 }
 
 select{

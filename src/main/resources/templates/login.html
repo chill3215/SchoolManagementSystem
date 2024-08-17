@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>LOGIN</title>
-    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/commonStructure.css">
     <link rel="stylesheet" href="/css/base.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -16,7 +16,6 @@
         <div class="side-container">
             <div class="message"><h1>WELCOME BACK</h1></div>
             <form action="/" method="get"><button class="side-button">HOME</button></form>
-
         </div>
         <div class="input-container">
             <h1><span>Login</span></h1>
@@ -29,7 +28,6 @@
                 </label>
                 <label>
                     <select name="userRole" th:field="*{userRole}" required>
-<!--                        <option value="" disabled selected style="display: none" class="select-placeholder" >Choose your user role: </option>-->
                         <option value="" disabled selected hidden class="select-placeholder">Choose your user role:</option>
                         <option value="ADMIN">Admin</option>
                         <option value="TEACHER">Teacher</option>

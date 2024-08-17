@@ -24,7 +24,6 @@ public class TeacherServiceImpl implements TeacherService{
 
     @Override
     public List<TeacherDTO> getAll() {
-
         return teacherRepository.findAll().stream().map(Teacher::getTeacherDTO).collect(Collectors.toList());
     }
 
@@ -35,16 +34,10 @@ public class TeacherServiceImpl implements TeacherService{
         }
         else{
             teacher.setUserRole(UserRole.TEACHER);
-            teacher.setPassword(RandomPasswortGenerator.generatePassword());
+            teacher.setPassword(RandomPasswordGenerator.generatePassword());
             teacherRepository.save(teacher);
         }
     }
-//
-//    @Override
-//    public TeacherDTO findByEmail(String email) {
-//
-//        return teacherRepository.findByEmail(email).getTeacherDTO();
-//    }
 
     @Override
     public Teacher getById(Integer id){
@@ -75,8 +68,6 @@ public class TeacherServiceImpl implements TeacherService{
             existingTeacher.setGender(updatedTeacher.getGender());
             teacherRepository.save(existingTeacher);
         }
-
-
     }
 
     @Override

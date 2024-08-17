@@ -11,14 +11,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminServiceImpl implements AdminService{
 
-
     @Autowired
-    private UserMainService userService;
+    private UserService userService;
 
     @Autowired
     private AdminRepository adminRepository;
-
-
 
     @PostConstruct
     public void createAdmin() {

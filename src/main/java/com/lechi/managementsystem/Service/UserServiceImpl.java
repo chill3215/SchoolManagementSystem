@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserMainServiceImpl implements UserMainService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository<User> userRepository;
@@ -38,19 +38,6 @@ public class UserMainServiceImpl implements UserMainService {
     public void deleteById(Integer id) {
         userRepository.deleteById(id);
     }
-
-//    @Override
-//    public void update(User updatedUser) {
-//        User existingUser = getById(updatedUser.getId());
-//        if(existingUser!=null){
-//            existingUser.setFullname(updatedUser.getFullname());
-//            existingUser.setEmail(updatedUser.getEmail());
-//            existingUser.setDob(updatedUser.getDob());
-//           userRepository.save(existingUser);
-//        }
-//
-//
-//    }
 
     @Override
     public void add(User user) {

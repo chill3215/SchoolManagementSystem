@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/commonStructure.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/profile.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -11,7 +11,6 @@
     <script src="https://kit.fontawesome.com/c6b60a295c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div class="fullscreen">
         <div class="nav-bar">
             <div class="logo">
@@ -43,9 +42,7 @@
                     <i class="fa-solid fa-star"></i>
                     <span>Marks</span>
                 </a>
-
             </div>
-
         </div>
         <div class="page-content">
             <div class="container">
@@ -56,7 +53,6 @@
                         <div class="photo">
                             <img th:if="${user.userRole.toString()=='TEACHER'}" th:src="${user.gender.toString()=='FEMALE'? '/img/female_teacher.png': '/img/male_teacher.png'}" alt="">
                             <img th:if="${user.userRole.toString()=='STUDENT'}" th:src="${user.gender.toString()=='FEMALE'? '/img/female_student.png':'/img/male_student.png'}" alt="">
-
                             <h2 th:text="${user.userRole}"></h2>
                             <div class="box-button">
                                 <form action="#" method="get" th:action="@{/{userRole}/{id}/updateForm(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}" th:if="${currentUser.email==user.email || currentUser.userRole.toString()!='STUDENT' && currentUser.userRole!=user.userRole}">
@@ -73,12 +69,10 @@
                     <div class="table">
                         <h1>Personal Information</h1>
                         <div class="box basic">
-    <!--                        <h1>General Information</h1>-->
                             <div class="holder">
                                 <label>Full name: </label>
                                 <div><text th:text="${user.fullname}"></text></div>
                             </div>
-
 
                             <div class="holder">
                                 <label> Gender:</label>
@@ -90,26 +84,20 @@
                                 <div><text th:text="${user.dob}"></text></div>
                             </div>
 
-
                             <div class="holder">
                                 <label>Email:</label>
                                 <div><text th:text="${user.email}"></text></div>
                             </div>
-
 
                             <div class="holder">
                                 <label>Phone number:</label>
                                 <div><text th:text="${user.phonenumber}"></text></div>
                             </div>
 
-
                             <div class="holder">
                                 <label>Address:</label>
                                 <div><text th:text="${user.address}"></text></div>
                             </div>
-
-
-
                         </div>
                         <div class="box specify for-teacher" th:if="${user.userRole.toString()=='TEACHER'}">
                             <div class="holder">
@@ -121,7 +109,6 @@
                                 <label>Nationality: </label>
                                 <div><text th:text="${user.nationality}"></text></div>
                             </div>
-
 
                             <div class="holder">
                                 <label>Subject:</label>
@@ -142,9 +129,6 @@
                                 <label>Year of entry: </label>
                                 <div><text th:text="${user.entryYear}"></text></div>
                             </div>
-
-
-
 
                         </div>
                         <div class="box specify for-student" th:if="${user.userRole.toString()=='STUDENT'}">
@@ -178,7 +162,6 @@
                                 <label>Mother's name: </label>
                                 <div><text th:text="${user.motherName}"></text></div>
                             </div>
-
                         </div>
                     </div>
 
@@ -192,18 +175,9 @@
                     <form class="low-button" action="#" th:action="@{/{userRole}/all(userRole=${user.userRole.toString().toLowerCase()})}" method="get">
                         <button th:text="${user.userRole.toString()=='TEACHER'? 'SEE OTHER TEACHERS':'SEE OTHER STUDENTS'}"></button>
                     </form>
-
                 </div>
-
-
             </div>
-
-
     </div>
-
-
-
-
 </div>
 </body>
 </html>

@@ -20,19 +20,26 @@ import java.time.LocalDate;
 @DiscriminatorColumn(name = "user_type")
 public class User {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String fullname;
+
     private LocalDate dob;
+
     private String email;
+
     private String password;
+
     private String address;
+
     private Gender gender;
+
     private String phonenumber;
+
     private int entryYear;
+
     private String nationality;
 
 
