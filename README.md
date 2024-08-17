@@ -52,7 +52,7 @@ This project is a web application designed to manage teachers and students' info
   - Git
 
 5. Usage and workflow explained
-- Once the application is running, an account for admin is automatically created with email address and password and some data for database is also initialized. Admin information can be used to login the system. Then admin can create information for teachers, students and subjects. This information will then be saved in database. Then teachers and students can use this information to login.
+- Once the application is running, an account for admin is automatically created with email address and password and some data for database is also initialized. Admin information can be used to login the system. Then admin can create information for teachers, students (password for accounts will be generated randomly) and subjects. This information will then be saved in database. Then teachers and students can use this information (get from the admin) to login.
 Admin can management teachers, students and subjects information while teachers can handle information of students and scores. Meanwhile students are only allowed to see the displayed information.
 
 
