@@ -1,6 +1,6 @@
 package com.lechi.managementsystem.Service;
 
-import com.lechi.managementsystem.Error.UserAlreadyExists;
+import com.lechi.managementsystem.Error.UserCannotBeAddedException;
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 
@@ -17,7 +17,7 @@ public interface UserMainService{
 
     void deleteById(Integer id);
 
-    void add(User user) throws UserAlreadyExists;
+    void add(User user) throws UserCannotBeAddedException;
 
     long count();
 }

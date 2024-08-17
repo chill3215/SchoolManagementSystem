@@ -1,6 +1,6 @@
 package com.lechi.managementsystem.Service;
 
-import com.lechi.managementsystem.Error.UserAlreadyExists;
+import com.lechi.managementsystem.Error.UserCannotBeAddedException;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ public interface MainService<Obj, Dto> {
 
     public List<Dto> getAll();
 
-    public void add(Obj o) throws UserAlreadyExists;
+    public void add(Obj o) throws UserCannotBeAddedException;
 
 
     public Dto getDTOById(Integer id);

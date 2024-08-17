@@ -1,6 +1,6 @@
 package com.lechi.managementsystem.Service;
 
-import com.lechi.managementsystem.Error.UserAlreadyExists;
+import com.lechi.managementsystem.Error.UserCannotBeAddedException;
 import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Score;
 import com.lechi.managementsystem.Model.Entity.Student;
@@ -34,9 +34,9 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public void add(Student student) throws UserAlreadyExists {
+    public void add(Student student) throws UserCannotBeAddedException {
         if(userRepository.findByEmail(student.getEmail())!=null){
-            throw new UserAlreadyExists("email has been used");
+            throw new UserCannotBeAddedException("This email has been used", "Please try again with another E-Mail address" );
         }
         else{
             student.setUserRole(UserRole.STUDENT);

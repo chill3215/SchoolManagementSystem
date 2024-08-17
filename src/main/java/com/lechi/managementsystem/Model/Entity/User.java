@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "users")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
 @Inheritance(strategy = InheritanceType.JOINED)

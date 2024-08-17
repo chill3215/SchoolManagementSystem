@@ -6,15 +6,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
 @Entity
 @Table(name="subjects")
 @Data
-@AllArgsConstructor
+@SuperBuilder
 @NoArgsConstructor
-@Builder
 public class Subject {
 
     @Id

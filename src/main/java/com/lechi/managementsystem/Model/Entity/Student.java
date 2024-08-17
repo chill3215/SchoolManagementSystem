@@ -13,7 +13,6 @@ import java.util.List;
 @Data
 @Table(name = "students")
 @NoArgsConstructor
-@AllArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
 public class Student extends User {

@@ -1,6 +1,6 @@
 package com.lechi.managementsystem.Controller;
 
-import com.lechi.managementsystem.Error.UserAlreadyExists;
+import com.lechi.managementsystem.Error.UserCannotBeAddedException;
 import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Score;
 import com.lechi.managementsystem.Model.Entity.Student;
@@ -40,7 +40,7 @@ public class StudentController {
     }
 
     @PostMapping("")
-    public String addStudent(@ModelAttribute Student student) throws UserAlreadyExists {
+    public String addStudent(@ModelAttribute Student student) throws UserCannotBeAddedException {
 
         studentService.add(student);
         return "redirect:/student/all";

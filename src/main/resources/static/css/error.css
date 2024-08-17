@@ -1,0 +1,27 @@
+.container {
+    width: 50%;
+    height: 60%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    border-radius: 20px;
+    background: var(--box-background-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.text-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-evenly;
+
+}

@@ -6,17 +6,17 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice
 public class ExceptionHandler {
 
-    @org.springframework.web.bind.annotation.ExceptionHandler(UserAlreadyExists.class)
-    public ModelAndView handleUserCantBeAddedException(Exception e){
+    @org.springframework.web.bind.annotation.ExceptionHandler(UserCannotBeAddedException.class)
+    public ModelAndView handleUserCantBeAddedException(CustomException e){
         ModelAndView modelAndView = new ModelAndView("error");
-        modelAndView.addObject("msg", "User cant be added: "+ e.getMessage());
+        modelAndView.addObject("exception", e);
         return modelAndView;
     }
 
-    @org.springframework.web.bind.annotation.ExceptionHandler(UserNotFound.class)
-    public ModelAndView handleUserNotFound(Exception e){
+    @org.springframework.web.bind.annotation.ExceptionHandler(UserNotFoundException.class)
+    public ModelAndView handleUserNotFound(CustomException e){
         ModelAndView modelAndView = new ModelAndView("error");
-        modelAndView.addObject("msg", "User cannot be found: " + e.getMessage());
+        modelAndView.addObject("exception", e);
         return modelAndView;
     }
 

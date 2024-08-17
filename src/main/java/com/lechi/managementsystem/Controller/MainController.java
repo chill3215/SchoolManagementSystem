@@ -1,9 +1,7 @@
 package com.lechi.managementsystem.Controller;
 
-import com.lechi.managementsystem.Error.UserNotFound;
-import com.lechi.managementsystem.Model.Entity.Subject;
+import com.lechi.managementsystem.Error.UserNotFoundException;
 import com.lechi.managementsystem.Model.Entity.User;
-import com.lechi.managementsystem.Repository.SubjectRepository;
 import com.lechi.managementsystem.Service.StudentService;
 import com.lechi.managementsystem.Service.SubjectService;
 import com.lechi.managementsystem.Service.TeacherService;
@@ -14,8 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
-import java.util.List;
 
 @Controller
 @SessionAttributes("currentUser")
@@ -44,18 +40,15 @@ public class MainController {
     }
 
     @GetMapping("/authen")
-    public String authenticate(@ModelAttribute User user, Model model) throws UserNotFound{
+    public String authenticate(@ModelAttribute User user, Model model) throws UserNotFoundException {
         User foundUser = userService.findByEmail(user.getEmail());
         if (foundUser==null || !foundUser.getPassword().equals(user.getPassword())
                 || !foundUser.getUserRole().equals(user.getUserRole())) {
-            throw new UserNotFound("try again with another combination of email and password");
-        }
+            throw new UserNotFoundException("The email or password you entered is incorrect", "Try again with another combination of E-Mail address and password");}
         else{
             model.addAttribute("currentUser", foundUser);
             return "portal";
         }
-
-
     }
 
     @GetMapping("/main")
