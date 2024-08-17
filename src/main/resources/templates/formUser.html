@@ -54,13 +54,13 @@
             <div class="fields_container">
                 <div class="table">
                     <h1>Register form</h1>
-                    <form action="#" method="post" th:action="@{/{role}(role=${role.toString().toLowerCase()})}" th:object="${user}" >
+                    <form id="createUserForm" method="post" th:action="@{/{role}(role=${role.toString().toLowerCase()})}" th:object="${user}" >
                     <input type="hidden" th:field="*{id}">
                         <div class="big_box">
                             <div class="box basic">
                                 <div class="holder">
                                     <label>Full name: </label>
-                                    <input type="text" name="firstname" th:field="*{fullname}">
+                                    <input type="text" name="fullname" th:field="*{fullname}" required>
                                 </div>
 
 
@@ -131,7 +131,7 @@
 
                                 <div class="holder">
                                     <label>Year of entry: </label>
-                                    <input type="year" name="entryYear" min="1950" th:field="*{entryYear}">
+                                    <input type="year" name="entryYear" th:field="*{entryYear}">
                                 </div>
 
 
@@ -173,13 +173,41 @@
                             </div>
 
                         </div>
-                        <button>Submit</button>
+                        <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("createUserForm").addEventListener("submit", function (event){
+        let fullname = document.getElementsByName("fullname")[0].value.trim();
+        let email = document.getElementsByName("email")[0].value.trim();
+        let entryYear = parseInt(document.getElementsByName("entryYear")[0].value);
+        let phoneNumber = document.getElementsByName("phonenumber")[0].value.trim();
+        let errorMessage = "";
+
+        if (fullname===""){
+            errorMessage += "The fullname has to be given\n";
+        }
+        if (!email.includes("@")){
+            errorMessage += "This E-Mail address is not valid\n";
+        }
+        if (entryYear> new Date().getFullYear()){
+            errorMessage += "Entry year can not be in the future\n";
+        }
+        const regexPhoneNumber = /^0[1-9]\d{9,13}$/
+        if (!regexPhoneNumber.test(phoneNumber)){
+            errorMessage+="The phone number is not valid\n";
+        }
+
+        if (errorMessage){
+            alert(errorMessage);
+            event.preventDefault();
+        }
+    });
+</script>
 
 </body>
 </html>
