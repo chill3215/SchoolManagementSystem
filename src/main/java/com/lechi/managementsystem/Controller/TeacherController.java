@@ -7,6 +7,7 @@ import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import com.lechi.managementsystem.Service.SubjectService;
 import com.lechi.managementsystem.Service.TeacherService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,7 +40,7 @@ public class TeacherController {
     }
 
     @PostMapping("")
-    public String addTeacher(@ModelAttribute Teacher teacher) throws UserCannotBeAddedException {
+    public String addTeacher(@Valid @ModelAttribute Teacher teacher) throws UserCannotBeAddedException {
         teacherService.add(teacher);
         return "redirect:/teacher/all";
     }
@@ -61,7 +62,7 @@ public class TeacherController {
     }
 
     @PostMapping("/{id}/updated")
-    public String saveUpdatedTeacher(@PathVariable("id") Integer id, @ModelAttribute TeacherDTO updatedTeacher, Model model){
+    public String saveUpdatedTeacher(@PathVariable("id") Integer id, @Valid @ModelAttribute TeacherDTO updatedTeacher, Model model){
         teacherService.update(updatedTeacher);
         return "redirect:/teacher/"+id;
     }

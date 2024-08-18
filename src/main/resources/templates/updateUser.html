@@ -52,7 +52,7 @@
                 <div class="fields_container">
                     <div class="table">
                         <h1>Change information form</h1>
-                        <form action="#" method="post" th:action="@{/{userRole}/{id}/updated(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}" th:object="${user}">
+                        <form id="update" action="#" method="post" th:action="@{/{userRole}/{id}/updated(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}" th:object="${user}">
                             <input type="hidden" th:value="${user.id}" th:field="*{id}">
                                 <div class="big_box">
                                     <div class="box basic">
@@ -124,7 +124,7 @@
 
                                         <div class="holder">
                                             <label>Year of entry: </label>
-                                            <input type="year" name="entryYear" min="1950" th:value="${user.entryYear}" th:field="*{entryYear}">
+                                            <input type="number" name="entryYear" th:value="${user.entryYear}" th:field="*{entryYear}">
                                         </div>
 
                                     </div>
@@ -146,10 +146,10 @@
 
                                         <div class="holder">
                                             <label>Year of entry: </label>
-                                            <input type="year" name="entryYear" min="1950" th:value="${user.entryYear}" th:field="*{entryYear}">
+                                            <input type="number" name="entryYear" th:value="${user.entryYear}" th:field="*{entryYear}">
                                         </div>
 
-                                    <    <div class="holder">
+                                        <div class="holder">
                                             <label>Father's name: </label>
                                             <input type="text" name="fatherName" th:value="${user.fatherName}" th:field="*{fatherName}">
                                         </div>
@@ -162,13 +162,41 @@
                                     </div>
 
                                 </div>
-                            <button>Submit</button>
+                            <button type="submit">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("update").addEventListener("submit", function (event){
+            let fullname = document.getElementsByName("fullname")[0].value.trim();
+            let email = document.getElementsByName("email")[0].value.trim();
+            let entryYear = parseInt(document.getElementsByName("entryYear")[0].value);
+            let phoneNumber = document.getElementsByName("phonenumber")[0].value.trim();
+            let errorMessage = "";
+
+            if (fullname===""){
+                errorMessage += "The fullname has to be given\n";
+            }
+            if (!email.includes("@")){
+                errorMessage += "This E-Mail address is not valid\n";
+            }
+            if (entryYear> new Date().getFullYear()){
+                errorMessage += "Entry year can not be in the future\n";
+            }
+            const regexPhoneNumber = /^0[1-9]\d{9,13}$/
+            if (!regexPhoneNumber.test(phoneNumber)){
+                errorMessage+="The phone number is not valid\n";
+            }
+
+            if (errorMessage){
+                alert(errorMessage);
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
 

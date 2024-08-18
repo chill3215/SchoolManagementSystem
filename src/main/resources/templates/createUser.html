@@ -18,9 +18,6 @@
         <div class="logo">
             <span>scholarly</span>
         </div>
-        <a href="">
-            <span>Log out</span>
-        </a>
     </div>
     <div class="side-bar">
         <div class="menu">
@@ -58,7 +55,7 @@
                             <div class="box basic">
                                 <div class="holder">
                                     <label>Full name: </label>
-                                    <input type="text" name="fullname" th:field="*{fullname}" required>
+                                    <input type="text" name="fullname" th:field="*{fullname}">
                                 </div>
                                 <div class="holder">
                                     <label> Gender:</label>
@@ -76,7 +73,7 @@
 
                                 <div class="holder">
                                     <label>Email:</label>
-                                    <input type="email" name="email" th:field="*{email}" required>
+                                    <input type="email" name="email" th:field="*{email}">
                                 </div>
 
                                 <div class="holder">
@@ -121,7 +118,7 @@
 
                                 <div class="holder">
                                     <label>Year of entry: </label>
-                                    <input type="year" name="entryYear" th:field="*{entryYear}">
+                                    <input type="number" name="entryYear" th:field="*{entryYear}">
                                 </div>
 
                             </div>
@@ -143,7 +140,7 @@
 
                                 <div class="holder">
                                     <label>Year of entry: </label>
-                                    <input type="year" name="entryYear" min="1950" th:field="*{entryYear}">
+                                    <input type="number" name="entryYear" th:field="*{entryYear}">
                                 </div>
 
                                 <div class="holder">

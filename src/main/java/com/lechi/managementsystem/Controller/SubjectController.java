@@ -3,6 +3,7 @@ package com.lechi.managementsystem.Controller;
 import com.lechi.managementsystem.Model.Entity.Subject;
 import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Service.SubjectService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,7 @@ public class SubjectController {
     SubjectService subjectService;
 
     @PostMapping("/")
-    public String addSubject(@ModelAttribute Subject subject) {
+    public String addSubject(@Valid  @ModelAttribute Subject subject) {
         subjectService.add(subject);
         return "redirect:/subject/all";
     }
@@ -68,7 +69,7 @@ public class SubjectController {
     }
 
     @PostMapping("/{id}/update")
-    public String updatedSubject(@ModelAttribute Subject subject, @PathVariable("id") Integer id){
+    public String updatedSubject(@Valid @ModelAttribute Subject subject, @PathVariable("id") Integer id){
         subjectService.update(subject);
         return "redirect:/subject/"+id;
     }

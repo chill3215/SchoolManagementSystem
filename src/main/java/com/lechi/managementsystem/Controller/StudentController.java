@@ -1,6 +1,7 @@
 package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Error.UserCannotBeAddedException;
+import com.lechi.managementsystem.Error.UserDataNotValidException;
 import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Score;
 import com.lechi.managementsystem.Model.Entity.Student;
@@ -8,6 +9,7 @@ import com.lechi.managementsystem.Model.Entity.User;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import com.lechi.managementsystem.Service.StudentService;
 import com.lechi.managementsystem.Service.SubjectService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +42,7 @@ public class StudentController {
     }
 
     @PostMapping("")
-    public String addStudent(@ModelAttribute Student student) throws UserCannotBeAddedException {
+    public String addStudent(@Valid @ModelAttribute Student student) throws UserCannotBeAddedException{
         studentService.add(student);
         return "redirect:/student/all";
     }
@@ -62,7 +64,7 @@ public class StudentController {
     }
 
     @PostMapping("/{id}/updated")
-    public String saveUpdatedStudent(@PathVariable("id") Integer id,@ModelAttribute StudentDTO updatedStudent, Model model){
+    public String saveUpdatedStudent(@PathVariable("id") Integer id,@Valid @ModelAttribute StudentDTO updatedStudent, Model model){
         studentService.update(updatedStudent);
         return "redirect:/student/"+id;
     }

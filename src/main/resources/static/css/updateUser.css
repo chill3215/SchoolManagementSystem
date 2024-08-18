@@ -1,6 +1,7 @@
 
 .big_box{
     display: flex;
+    width: max-content;
 }
 
 .box{
