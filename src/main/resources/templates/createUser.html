@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="/css/commonStructure.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/profile.css">
-    <link rel="stylesheet" href="/css/updateFormUser.css">
-    <link rel="stylesheet" href="/css/formUser.css">
+    <link rel="stylesheet" href="/css/updateUser.css">
+    <link rel="stylesheet" href="/css/createUser.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="https://kit.fontawesome.com/c6b60a295c.js" crossorigin="anonymous"></script>
@@ -52,7 +52,6 @@
             <h1 class="title" th:text="'Register new '+${role.toString().toLowerCase()}"></h1>
             <div class="fields_container">
                 <div class="table">
-                    <h1>Register form</h1>
                     <form id="createUserForm" method="post" th:action="@{/{role}(role=${role.toString().toLowerCase()})}" th:object="${user}" >
                     <input type="hidden" th:field="*{id}">
                         <div class="big_box">
