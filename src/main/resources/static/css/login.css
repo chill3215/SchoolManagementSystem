@@ -3,6 +3,7 @@
 }
 .container{
     width: 45%;
+    min-width: max-content;
     height: 80%;
     display: flex;
     box-shadow: -5px -5px 10px #fff,

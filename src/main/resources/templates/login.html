@@ -19,7 +19,7 @@
         </div>
         <div class="input-container">
             <h1><span>Login</span></h1>
-            <form action="authen" method="get" th:object="${user}">
+            <form id="login" action="authen" method="get" th:object="${user}">
                 <label>
                     <input type="text" name="email" placeholder="Email" th:field="*{email}">
                 </label>
@@ -34,17 +34,26 @@
                         <option value="STUDENT">Student</option>
                     </select>
                 </label>
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>
 </div>
-
-
-
-
-
-
+<script>
+    document.getElementById("login").addEventListener("submit", function (event){
+        let message ="";
+        if (document.getElementsByName("email")[0].value.trim() ===""){
+            message += "please fill in your E-Mail address\n";
+        }
+        if (document.getElementsByName("password")[0].value.trim() ===""){
+            message += "please fill in your password address";
+        }
+        if (message){
+            alert(message);
+            event.preventDefault();
+        }
+    });
+</script>
 
 </body>
 </html>
