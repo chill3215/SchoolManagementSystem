@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/commonStructure.css">
     <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/updateFormSubject.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="https://kit.fontawesome.com/c6b60a295c.js" crossorigin="anonymous"></script>
@@ -50,18 +51,27 @@
         <div class="content">
             <form action="#" method="post" th:action="@{/subject/{id}/update(id=${subject.id})}" th:object="${subject}">
                 <input type="hidden" th:value="${subject.id}" th:field="*{id}">
+                <input type="hidden" th:value="${subject.name}" th:field="*{name}">
                 <div class="fields_container">
-                    <label>Subject code: </label>
-                    <input type="text" name="subjectCode" th:value="${subject.subjectCode}" th:field="*{subjectCode}">
+                    <h2 th:text="${subject.name}"></h2>
+                    <div class="holder">
+                        <label>Subject code: </label>
+                        <input type="text" name="subjectCode" th:value="${subject.subjectCode}" th:field="*{subjectCode}">
+                    </div>
 
-                    <label>Room:</label>
-                    <input type="text" name="room" th:value="${subject.room}" th:field="*{room}">
+                    <div class="holder">
+                        <label>Room:</label>
+                        <input type="text" name="room" th:value="${subject.room}" th:field="*{room}">
+                    </div>
 
-                    <label>Credit points:</label>
-                    <input type="text" name="creditPoints" th:value="${subject.creditPoints}" th:field="*{creditPoints}">
-
+                    <div class="holder">
+                        <label>Credit points:</label>
+                        <input type="text" name="creditPoints" th:value="${subject.creditPoints}" th:field="*{creditPoints}">
+                    </div>
                 </div>
-                <button>Submit</button>
+                <div class="button-box">
+                    <button>Submit</button>
+                </div>
             </form>
         </div>
     </div>

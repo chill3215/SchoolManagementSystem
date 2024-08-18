@@ -1,0 +1,50 @@
+
+.content{
+    height: 80%;
+    width: max-content;
+    margin: auto;
+}
+
+form{
+    height: 100%;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.fields_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background: var(--gradient-color);
+}
+
+.fields_container h2{
+    font-size: 2rem;
+    margin: 0;
+}
+
+.holder{
+    display: flex;
+    margin-top: 2rem;
+}
+
+.holder label{
+    min-width: 11rem;
+    height: fit-content;
+    font-size: 1.8rem;
+    margin: auto;
+}
+.button-box{
+    display: flex;
+    justify-content: center;
+}
+button{
+    margin: 1rem;
+}
+
+
+

@@ -1,0 +1,23 @@
+.holder text{
+    height: 4rem;
+    border-radius: 20px;
+    box-shadow: inset 7px 2px 10px #babebc, inset -5px -5px 12px #fff;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    flex-grow: 1;
+    margin-left: 1.5rem;
+    background: var(--box-background-color);
+    border: none;
+}
+.button-box{
+    flex-direction: column;
+}
+.button-box1{
+    display: flex;
+    justify-content: space-evenly;
+}
+.button-box2{
+    display: flex;
+    justify-content: center;
+}

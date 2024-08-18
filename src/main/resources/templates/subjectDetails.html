@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/commonStructure.css">
     <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/updateFormSubject.css">
+    <link rel="stylesheet" href="/css/subjectDetails.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="https://kit.fontawesome.com/c6b60a295c.js" crossorigin="anonymous"></script>
@@ -45,37 +47,45 @@
         </div>
     </div>
     <div class="page-content">
-        <h1>New Subject</h1>
+        <h1>SUBJECT DETAILS</h1>
         <div class="content">
-            <h1 th:text="${subject.name}"></h1>
             <input type="hidden" th:value="${subject.id}">
             <div class="fields_container">
-                <label>Subject code: </label>
-                <text th:text="${subject.subjectCode}"></text>
+                <h2 th:text="${subject.name}"></h2>
+                <div class="holder">
+                    <label>Subject code: </label>
+                    <text th:text="${subject.subjectCode}"></text>
+                </div>
 
-                <label> Room:</label>
-                <text th:text="${subject.room}"></text>
+                <div class="holder">
+                    <label> Room:</label>
+                    <text th:text="${subject.room}"></text>
+                </div>
 
-                <label>Credit points:</label>
-                <text th:text="${subject.creditPoints}"></text>
+                <div class="holder">
+                    <label>Credit points:</label>
+                    <text th:text="${subject.creditPoints}"></text>
+                </div>
+            </div>
+            <div class="button-box">
+                <div class="button-box1">
+                    <form action="#" method="get" th:action="@{/subject/{id}/updateForm(id=${subject.id})}" th:if="${currentUser.userRole.toString()!='STUDENT'}">
+                        <button class="button button_update" >UPDATE</button>
+                    </form>
+                    <form action="#" method="post" th:action="@{/subject/{id}(id=${subject.id})}" th:if="${currentUser.userRole.toString()=='ADMIN'}">
+                        <input type="hidden" name="_method" value="delete">
+                        <button>DELETE</button>
+                    </form>
+                </div>
+                <div class="button-box2">
+                    <form action="/subject/all" method="get">
+                        <button>SEE ALL SUBJECTS</button>
+                    </form>
+                </div>
 
             </div>
-
-            <form action="#" method="get" th:action="@{/subject/{id}/updateForm(id=${subject.id})}" th:if="${currentUser.userRole.toString()!='STUDENT'}">
-                <button class="button button_update" >UPDATE</button>
-            </form>
-            <form action="/subject/all" method="get">
-                <button>SEE ALL SUBJECTS</button>
-            </form>
-            <form action="#" method="post" th:action="@{/subject/{id}(id=${subject.id})}" th:if="${currentUser.userRole.toString()=='ADMIN'}">
-                <input type="hidden" name="_method" value="delete">
-                <button>DELETE</button>
-            </form>
-
         </div>
     </div>
-
-
 </div>
 
 
