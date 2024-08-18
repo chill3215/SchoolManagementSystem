@@ -27,7 +27,7 @@ public class TeacherController {
         model.addAttribute("user", new Teacher());
         model.addAttribute("role", UserRole.TEACHER);
         model.addAttribute("subjects", subjectService.getAll());
-        return "formUser";
+        return "createUser";
     }
 
     @GetMapping("/all")
@@ -35,7 +35,7 @@ public class TeacherController {
         model.addAttribute("users", teacherService.getAll());
         model.addAttribute("role", UserRole.TEACHER);
         model.addAttribute("currentUser", user);
-        return "listUser";
+        return "listUsers";
     }
 
     @PostMapping("")
@@ -57,7 +57,7 @@ public class TeacherController {
         Teacher foundTeacher = teacherService.getById(id);
         model.addAttribute("user", foundTeacher);
         model.addAttribute("allSubjects", subjectService.getAll());
-        return "updateFormUser";
+        return "updateUser";
     }
 
     @PostMapping("/{id}/updated")

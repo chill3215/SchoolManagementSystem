@@ -28,7 +28,7 @@ public class StudentController {
     public String getFormStudent(Model model){
         model.addAttribute("user", new Student());
         model.addAttribute("role", UserRole.STUDENT);
-        return "formUser";
+        return "createUser";
     }
 
     @GetMapping("/all")
@@ -36,7 +36,7 @@ public class StudentController {
         model.addAttribute("users", studentService.getAll());
         model.addAttribute("role", UserRole.STUDENT);
         model.addAttribute("currentUser", user);
-        return "listUser";
+        return "listUsers";
     }
 
     @PostMapping("")
@@ -58,7 +58,7 @@ public class StudentController {
     public String getUpdateForm(@PathVariable("id") Integer id, Model model){
         StudentDTO foundStudent = studentService.getDTOById(id);
         model.addAttribute("user", foundStudent);
-        return "updateFormUser";
+        return "updateUser";
     }
 
     @PostMapping("/{id}/updated")

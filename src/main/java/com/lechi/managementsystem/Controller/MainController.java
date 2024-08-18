@@ -47,13 +47,13 @@ public class MainController {
             throw new UserNotFoundException("The email or password you entered is incorrect", "Try again with another combination of E-Mail address and password");}
         else{
             model.addAttribute("currentUser", foundUser);
-            return "portal";
+            return "dashboard";
         }
     }
 
     @GetMapping("/main")
     public String home(){
-        return "portal";
+        return "dashboard";
     }
     @ModelAttribute("currentUser")
     public User getCurrentUser(Model model){

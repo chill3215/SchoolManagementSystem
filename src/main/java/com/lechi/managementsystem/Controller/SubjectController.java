@@ -28,7 +28,7 @@ public class SubjectController {
         Subject subject = subjectService.getById(id);
         model.addAttribute("subject", subject);
         model.addAttribute("currentUser", user);
-        return "subjectDetails";
+        return "subject";
     }
 
     @GetMapping("/all")
@@ -36,7 +36,7 @@ public class SubjectController {
         List<Subject> subjects = subjectService.getAll();
         model.addAttribute("subjects", subjects);
         model.addAttribute("currentUser", user);
-        return "listSubject";
+        return "listSubjects";
     }
 
     @PostMapping("{id}")
@@ -57,14 +57,14 @@ public class SubjectController {
     @GetMapping("/form")
     public String getFormSubject(Model model){
         model.addAttribute("subject", new Subject());
-        return "formSubject";
+        return "createSubject";
     }
 
     @GetMapping("/{id}/updateForm")
     public String getUpdateForm(@PathVariable("id") Integer id, Model model){
         Subject subject = subjectService.getById(id);
         model.addAttribute("subject", subject);
-        return "updateFormSubject";
+        return "updateSubject";
     }
 
     @PostMapping("/{id}/update")

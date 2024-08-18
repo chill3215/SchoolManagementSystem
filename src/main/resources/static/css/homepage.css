@@ -1,3 +1,6 @@
+.fullscreen{
+    background: var(--background-color);
+}
 .container{
     display: flex;
     height: 70%;

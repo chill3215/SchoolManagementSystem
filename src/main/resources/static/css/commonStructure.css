@@ -1,9 +1,10 @@
 .nav-bar{
     width: 100%;
     height: 10%;
-    background: #e7e9eb;
+    background: transparent;
     position: fixed;
     top: 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 }
 
 .logo {
@@ -17,32 +18,27 @@
 
 .nav-bar .logo  span{
     text-transform: uppercase;
-    background: var(--gradient-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-size: 3.2rem;
     line-height: 4rem;
     font-weight: bolder;
     text-align: center;
+    color: var(--color-infor-black);
 }
 
-/*side bar*/
+
 .side-bar{
-    padding-top: 20px;
     width: 15%;
     min-width: fit-content;
     height: 100%;
     position: fixed;
     top: 10%;
     left: 0;
-    background: var(--background-color);
-
+    /*background: var(--background-color);*/
+    background: transparent;
 }
 .menu{
-    padding: 7px 0;
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
     min-width: fit-content;
 }
 
@@ -55,9 +51,8 @@
     margin-left: 2rem;
     text-decoration: none;
     align-items: center;
-    color: var(--color-infor-dark);
+    color: var(--color-infor-black);
     position: relative;
-    width: 15rem;
 }
 .side-bar a i{
     padding-top: 2px;
@@ -96,6 +91,7 @@
 
 .side-bar a:hover {
     color: var(--theme-color);
+    background: var(--background-color);
 }
 .side-bar a:hover i{
     margin-left: 2rem;
@@ -113,6 +109,8 @@
     right: 0;
     top: 10%;
     background: var(--background-color);
+    padding: 1rem;
+    border-radius: 2rem;
 }
 .container{
     width: 95%;

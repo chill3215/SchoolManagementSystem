@@ -8,6 +8,7 @@
     --color-light: rgba(182, 184, 206, 0.18);
     --color-infor-black: #000000FF;
     --box-background-color: #f6f6f9;
+    --gradient-background: linear-gradient(135deg, RGB(36 252 201), rgb(203, 243, 111))
 }
 
 *{
@@ -33,6 +34,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--gradient-background);
 }
 
 button{
