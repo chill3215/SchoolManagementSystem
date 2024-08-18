@@ -11,11 +11,11 @@
     height: 100%;
     display: flex;
     align-items: center;
+    margin-left: 1rem;
 }
 
 
 .nav-bar .logo  span{
-    width: 100%;
     text-transform: uppercase;
     background: var(--gradient-color);
     -webkit-background-clip: text;
@@ -30,6 +30,7 @@
 .side-bar{
     padding-top: 20px;
     width: 15%;
+    min-width: fit-content;
     height: 100%;
     position: fixed;
     top: 10%;
@@ -42,6 +43,7 @@
     display: flex;
     flex-direction: column;
     margin-right: 20px;
+    min-width: fit-content;
 }
 
 
@@ -55,7 +57,7 @@
     align-items: center;
     color: var(--color-infor-dark);
     position: relative;
-
+    width: 15rem;
 }
 .side-bar a i{
     padding-top: 2px;
