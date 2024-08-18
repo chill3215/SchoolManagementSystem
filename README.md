@@ -63,6 +63,10 @@ Admin can management teachers, students and subjects information while teachers 
     cd SchoolManagementSystem
     ```
 - Configure the database:
+    + Create a database in your DBMS
+      ```mysql
+      create database management_system
+      ```
     + Update the application.properties file in the src/main/resources directory with your MySQL database details.
       ```java
       spring.datasource.url=jdbc:mysql://localhost:3306/management_system
