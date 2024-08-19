@@ -36,7 +36,7 @@ This project is a web application designed to manage teachers and students' info
   - Subject Management: Create and manage subjects.
   - Grade Tracking: Record and update student grades.(not completeted yet)
   - User Roles: Manage different user roles and permissions (Admin, Teacher, Student).
-  - Error message for user: The input data is checked and returns a error message for user to let them know where the problems orginate along with an instruction.
+  - Error message for user: The input data is validated and returns a error message for user to let them know where the problems orginate along with an instruction.
 
 3. Technologies used
   - Backend: Spring Boot, Spring Data JPA, Hibernate
