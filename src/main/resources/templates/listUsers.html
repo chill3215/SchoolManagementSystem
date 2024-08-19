@@ -51,7 +51,6 @@
                     <table th:if="${role.toString()=='STUDENT'}">
                         <thead>
                         <tr>
-                            <th class="num">No.</th>
                             <th class="fullname">Full name</th>
                             <th class="id">StudentID</th>
                             <th class="dob">Date of birth</th>
@@ -60,7 +59,6 @@
                         </thead>
                         <tbody>
                         <tr th:each="user: ${users}">
-                            <td></td>
                             <td th:text="${user.fullname}"></td>
                             <td th:text="${user.studentNumber}"></td>
                             <td th:text="${user.dob}"></td>
@@ -79,7 +77,6 @@
                     <table th:if="${role.toString()=='TEACHER'}">
                         <thead>
                         <tr>
-                            <th class="num">No.</th>
                             <th class="fullname">Full name</th>
                             <th class="id">Teacher ID</th>
                             <th class="subject">Subject</th>
@@ -89,7 +86,6 @@
                         </thead>
                         <tbody>
                         <tr th:each="user: ${users}">
-                            <td></td>
                             <td th:text="${user.fullname}"></td>
                             <td th:text="${user.teacherNumber}"></td>
                             <td th:text="${user.subject.name}"></td>

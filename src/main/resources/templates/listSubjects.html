@@ -48,22 +48,18 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="Num">No.</th>
                             <th class="name">Name</th>
-                            <th class="year">Year</th>
                             <th class="subcode">Subject code</th>
                             <th class="action">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="subject: ${subjects}">
-                            <td></td>
                             <td th:text="${subject.name}"></td>
-                            <td></td>
                             <td th:text="${subject.subjectCode}"></td>
                             <td class="button-box">
                                 <form action="#" method="get" th:action="@{/subject/{id}(id=${subject.id})}">
-                                    <button class="button button_see" >SEE DETAILS</button>
+                                    <button class="button button_see" >DETAILS</button>
                                 </form>
                                 <form action="#" method="post" th:action="@{/subject/{id}(id=${subject.id})}" th:if="${currentUser.userRole.toString()=='ADMIN'}">
                                     <input type="hidden" name="_method" value="delete">

@@ -1,5 +1,5 @@
 .container{
-    width: 90%;
+    width: max-content;
     margin: auto;
 }
 
@@ -21,10 +21,6 @@ td{
 
 th,td{
     border: 0.1rem solid black;
-}
-
-th.Num{
-    width: 10%;
 }
 
 th.name{
