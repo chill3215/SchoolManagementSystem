@@ -1,6 +1,7 @@
 package com.lechi.managementsystem.Service;
 
 import com.lechi.managementsystem.Error.UserCannotBeAddedException;
+import com.lechi.managementsystem.Error.UserCannotBeUpdatedException;
 import com.lechi.managementsystem.Model.Dto.TeacherDTO;
 import com.lechi.managementsystem.Model.Entity.Teacher;
 import com.lechi.managementsystem.Model.Entity.User;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -53,21 +55,23 @@ public class TeacherServiceImpl implements TeacherService{
     }
 
     @Override
-    public void update(TeacherDTO updatedTeacher) {
+    public void update(TeacherDTO updatedTeacher) throws UserCannotBeUpdatedException{
         Teacher existingTeacher = getById(updatedTeacher.getId());
-        if(existingTeacher!=null){
-            existingTeacher.setFullname(updatedTeacher.getFullname());
-            existingTeacher.setEmail(updatedTeacher.getEmail());
-            existingTeacher.setDob(updatedTeacher.getDob());
-            existingTeacher.setSubject(updatedTeacher.getSubject());
-            existingTeacher.setId(updatedTeacher.getId());
-            existingTeacher.setQualification(updatedTeacher.getQualification());
-            existingTeacher.setPhonenumber(updatedTeacher.getPhonenumber());
-            existingTeacher.setEntryYear(updatedTeacher.getEntryYear());
-            existingTeacher.setSchool(updatedTeacher.getSchool());
-            existingTeacher.setGender(updatedTeacher.getGender());
-            teacherRepository.save(existingTeacher);
+        User userWithSameEMail = userRepository.findByEmail(updatedTeacher.getEmail());
+        if(!Objects.equals(userWithSameEMail.getId(), existingTeacher.getId())){
+            throw new UserCannotBeUpdatedException("This E-Mail address has been used", "Please update the user with another E-Mail address");
         }
+        existingTeacher.setFullname(updatedTeacher.getFullname());
+        existingTeacher.setEmail(updatedTeacher.getEmail());
+        existingTeacher.setDob(updatedTeacher.getDob());
+        existingTeacher.setSubject(updatedTeacher.getSubject());
+        existingTeacher.setId(updatedTeacher.getId());
+        existingTeacher.setQualification(updatedTeacher.getQualification());
+        existingTeacher.setPhonenumber(updatedTeacher.getPhonenumber());
+        existingTeacher.setEntryYear(updatedTeacher.getEntryYear());
+        existingTeacher.setSchool(updatedTeacher.getSchool());
+        existingTeacher.setGender(updatedTeacher.getGender());
+        teacherRepository.save(existingTeacher);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Error.UserCannotBeAddedException;
+import com.lechi.managementsystem.Error.UserCannotBeUpdatedException;
 import com.lechi.managementsystem.Error.UserDataNotValidException;
 import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Score;
@@ -64,7 +65,7 @@ public class StudentController {
     }
 
     @PostMapping("/{id}/updated")
-    public String saveUpdatedStudent(@PathVariable("id") Integer id,@Valid @ModelAttribute StudentDTO updatedStudent, Model model){
+    public String saveUpdatedStudent(@PathVariable("id") Integer id,@Valid @ModelAttribute StudentDTO updatedStudent) throws UserCannotBeUpdatedException{
         studentService.update(updatedStudent);
         return "redirect:/student/"+id;
     }
@@ -105,7 +106,7 @@ public class StudentController {
     }
 
     @PostMapping("/{studentId}/updateScore/{scoreId}")
-    public String updateScore(@PathVariable("studentId") Integer studentId, Model model, @ModelAttribute Score score,  @PathVariable("scoreId") Integer scoreId) {
+    public String updateScore(@PathVariable("studentId") Integer studentId, Model model, @ModelAttribute Score score,  @PathVariable("scoreId") Integer scoreId){
         studentService.updateScore(studentId, score);
         return "redirect:/student/"+studentId+"/score/all";
     }

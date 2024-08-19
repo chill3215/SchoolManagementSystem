@@ -1,6 +1,7 @@
 package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Error.UserCannotBeAddedException;
+import com.lechi.managementsystem.Error.UserCannotBeUpdatedException;
 import com.lechi.managementsystem.Model.Dto.TeacherDTO;
 import com.lechi.managementsystem.Model.Entity.Teacher;
 import com.lechi.managementsystem.Model.Entity.User;
@@ -62,7 +63,7 @@ public class TeacherController {
     }
 
     @PostMapping("/{id}/updated")
-    public String saveUpdatedTeacher(@PathVariable("id") Integer id, @Valid @ModelAttribute TeacherDTO updatedTeacher, Model model){
+    public String saveUpdatedTeacher(@PathVariable("id") Integer id, @Valid @ModelAttribute TeacherDTO updatedTeacher, Model model) throws UserCannotBeUpdatedException {
         teacherService.update(updatedTeacher);
         return "redirect:/teacher/"+id;
     }

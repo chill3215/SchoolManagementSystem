@@ -1,6 +1,7 @@
 package com.lechi.managementsystem.Service;
 
 import com.lechi.managementsystem.Error.UserCannotBeAddedException;
+import com.lechi.managementsystem.Error.UserCannotBeUpdatedException;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface DTOService<Obj, Dto> {
 
     public void deleteById(Integer id);
 
-    public void update(Dto dto);
+    public void update(Dto dto) throws UserCannotBeUpdatedException;
 
     public long count();
 }

@@ -1,6 +1,7 @@
 package com.lechi.managementsystem.Service;
 
 import com.lechi.managementsystem.Error.UserCannotBeAddedException;
+import com.lechi.managementsystem.Error.UserCannotBeUpdatedException;
 import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Score;
 import com.lechi.managementsystem.Model.Entity.Student;
@@ -60,23 +61,25 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public void update(StudentDTO updatedStudent) {
+    public void update(StudentDTO updatedStudent) throws UserCannotBeUpdatedException {
         Student existingStudent = getById(updatedStudent.getId());
-        if(existingStudent!=null){
-            existingStudent.setFullname(updatedStudent.getFullname());
-            existingStudent.setEmail(updatedStudent.getEmail());
-            existingStudent.setDob(updatedStudent.getDob());
-            existingStudent.setGrade(updatedStudent.getGrade());
-            existingStudent.setFatherName(updatedStudent.getFatherName());
-            existingStudent.setMotherName(updatedStudent.getMotherName());
-            existingStudent.setAddress(updatedStudent.getAddress());
-            existingStudent.setPhonenumber(updatedStudent.getPhonenumber());
-            existingStudent.setGender(updatedStudent.getGender());
-            existingStudent.setStudentNumber(updatedStudent.getStudentNumber());
-            existingStudent.setEntryYear(updatedStudent.getEntryYear());
-            existingStudent.setEntryYear(updatedStudent.getEntryYear());
-            studentRepository.save(existingStudent);
+        User userWithSameEMail = userRepository.findByEmail(updatedStudent.getEmail());
+        if(!Objects.equals(userWithSameEMail.getId(), existingStudent.getId())){
+            throw new UserCannotBeUpdatedException("This E-Mail address has been used", "Please update the user with another E-Mail address");
         }
+        existingStudent.setFullname(updatedStudent.getFullname());
+        existingStudent.setEmail(updatedStudent.getEmail());
+        existingStudent.setDob(updatedStudent.getDob());
+        existingStudent.setGrade(updatedStudent.getGrade());
+        existingStudent.setFatherName(updatedStudent.getFatherName());
+        existingStudent.setMotherName(updatedStudent.getMotherName());
+        existingStudent.setAddress(updatedStudent.getAddress());
+        existingStudent.setPhonenumber(updatedStudent.getPhonenumber());
+        existingStudent.setGender(updatedStudent.getGender());
+        existingStudent.setStudentNumber(updatedStudent.getStudentNumber());
+        existingStudent.setEntryYear(updatedStudent.getEntryYear());
+        existingStudent.setEntryYear(updatedStudent.getEntryYear());
+        studentRepository.save(existingStudent);
     }
 
     @Override
