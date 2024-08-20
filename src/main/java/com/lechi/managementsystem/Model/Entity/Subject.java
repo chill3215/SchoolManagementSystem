@@ -22,13 +22,14 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank(message = "Subject name has to be given")
     private String name;
 
     private String room;
 
     private int creditPoints;
 
-    @NotBlank
+    @NotBlank(message = "Subject code has to be given")
     private String subjectCode;
 
     @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -5,7 +5,7 @@
 }
 
 .box{
-    flex:1;
+    width: max-content;
 }
 
 .box .holder input, select{

@@ -12,6 +12,7 @@ import com.lechi.managementsystem.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -39,6 +40,7 @@ public class StudentServiceImpl implements StudentService{
             throw new UserCannotBeAddedException("This email has been used", "Please try again with another E-Mail address" );
         }
         else{
+            if(student.getEntryYear()==0) student.setEntryYear(LocalDate.now().getYear());
             student.setUserRole(UserRole.STUDENT);
             student.setPassword(RandomPasswordGenerator.generatePassword());
             studentRepository.save(student);

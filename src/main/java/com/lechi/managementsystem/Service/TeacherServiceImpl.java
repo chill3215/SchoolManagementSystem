@@ -11,6 +11,7 @@ import com.lechi.managementsystem.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -36,6 +37,7 @@ public class TeacherServiceImpl implements TeacherService{
         }
         else{
             teacher.setUserRole(UserRole.TEACHER);
+            if(teacher.getEntryYear()==0) teacher.setEntryYear(LocalDate.now().getYear());
             teacher.setPassword(RandomPasswordGenerator.generatePassword());
             teacherRepository.save(teacher);
         }
