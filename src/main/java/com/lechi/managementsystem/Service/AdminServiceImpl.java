@@ -26,6 +26,7 @@ public class AdminServiceImpl implements AdminService{
                     .email("admin@gmail.com")
                     .password("admin")
                     .userRole(UserRole.ADMIN)
+                    .academicID("000")
                     .build();
             adminRepository.save(admin);
         }

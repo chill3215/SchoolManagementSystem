@@ -60,7 +60,7 @@
                                 <div class="holder">
                                     <label> Gender:</label>
                                     <select name="gender" th:field="*{gender}">
-                                        <option value="" disabled selected>Please choose one option</option>
+                                        <option value="0" disabled selected></option>
                                         <option value="MALE">Male</option>
                                         <option value="FEMALE">Female</option>
                                     </select>
@@ -90,8 +90,8 @@
 
                             <div class="box specify for-teacher" th:if="${role.toString()=='TEACHER'}">
                                 <div class="holder">
-                                    <label> Teacher ID:</label>
-                                    <input type="text" name="teacherNumber" th:field="*{teacherNumber}">
+                                    <label> Academic ID:</label>
+                                    <input type="text" name="academicID" th:field="*{academicID}">
                                 </div>
 
                                 <div class="holder">
@@ -102,6 +102,7 @@
                                 <div class="holder">
                                     <label>Subject:</label>
                                     <select name="subject">
+                                        <option value="0" disabled selected></option>
                                         <option th:each="sub : ${subjects}" th:value="${sub.id}" th:text="${sub.name}"></option>
                                     </select>
                                 </div>
@@ -118,14 +119,17 @@
 
                                 <div class="holder">
                                     <label>Year of entry: </label>
-                                    <input type="number" name="entryYear" th:field="*{entryYear}">
+                                    <select name="year" th:field="*{entryYear}">
+                                        <option value="0" disabled selected></option>
+                                        <option th:each="year : ${#numbers.sequence(2024, 2000)}" th:value="${year}" th:text="${year}"></option>
+                                    </select>
                                 </div>
 
                             </div>
                             <div class="box specify for-student" th:if="${role.toString()=='STUDENT'}">
                                 <div class="holder">
-                                    <label> Student ID:</label>
-                                    <input type="text" name="studentNumber" th:field="*{studentNumber}">
+                                    <label> Academic ID:</label>
+                                    <input type="text" name="academicID" th:field="*{academicID}">
                                 </div>
 
                                 <div class="holder">
@@ -140,7 +144,10 @@
 
                                 <div class="holder">
                                     <label>Year of entry: </label>
-                                    <input type="number" name="entryYear" th:field="*{entryYear}">
+                                    <select name="year" th:field="*{entryYear}">
+                                        <option value="0" disabled selected></option>
+                                        <option th:each="year : ${#numbers.sequence(2024, 2000)}" th:value="${year}" th:text="${year}"></option>
+                                    </select>
                                 </div>
 
                                 <div class="holder">
@@ -166,6 +173,7 @@
 <script>
     document.getElementById("createUserForm").addEventListener("submit", function (event){
         let fullname = document.getElementsByName("fullname")[0].value.trim();
+        let academicID = document.getElementsByName("academicID")[0].value.trim();
         let email = document.getElementsByName("email")[0].value.trim();
         let entryYear = parseInt(document.getElementsByName("entryYear")[0].value);
         let phoneNumber = document.getElementsByName("phonenumber")[0].value.trim();
@@ -174,6 +182,9 @@
         if (fullname===""){
             errorMessage += "The fullname has to be given\n";
         }
+        if (academicID===""){
+            errorMessage += "The academic ID has to be given\n";
+        }
         if (!email.includes("@")){
             errorMessage += "This E-Mail address is not valid\n";
         }
@@ -181,7 +192,7 @@
             errorMessage += "Entry year can not be in the future\n";
         }
         const regexPhoneNumber = /^0[1-9]\d{9,13}$/
-        if (!regexPhoneNumber.test(phoneNumber)){
+        if (phoneNumber!=="" && !regexPhoneNumber.test(phoneNumber)){
             errorMessage+="The phone number is not valid\n";
         }
 

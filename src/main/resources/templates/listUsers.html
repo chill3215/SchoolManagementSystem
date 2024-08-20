@@ -52,7 +52,7 @@
                         <thead>
                         <tr>
                             <th class="fullname">Full name</th>
-                            <th class="id">StudentID</th>
+                            <th class="id">Academic ID</th>
                             <th class="dob">Date of birth</th>
                             <th class="action">Action</th>
                         </tr>
@@ -60,7 +60,7 @@
                         <tbody>
                         <tr th:each="user: ${users}">
                             <td th:text="${user.fullname}"></td>
-                            <td th:text="${user.studentNumber}"></td>
+                            <td th:text="${user.academicID}"></td>
                             <td th:text="${user.dob}"></td>
                             <td  class="button-box">
                                 <form action="#" method="get" th:action="@{/{userRole}/{id}(userRole=${user.userRole.toString().toLowerCase()},id=${user.id})}">
@@ -78,7 +78,7 @@
                         <thead>
                         <tr>
                             <th class="fullname">Full name</th>
-                            <th class="id">Teacher ID</th>
+                            <th class="id">Academic ID</th>
                             <th class="subject">Subject</th>
                             <th class="dob">Date of birth</th>
                             <th class="action">Action</th>
@@ -87,7 +87,7 @@
                         <tbody>
                         <tr th:each="user: ${users}">
                             <td th:text="${user.fullname}"></td>
-                            <td th:text="${user.teacherNumber}"></td>
+                            <td th:text="${user.academicID}"></td>
                             <td th:text="${user.subject.name}"></td>
                             <td th:text="${user.dob}"></td>
                             <td  class="button-box">

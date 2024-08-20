@@ -28,8 +28,6 @@ public class Teacher extends User {
 
     private String qualification;
 
-    private String teacherNumber;
-
     private String school;
 
     @ManyToMany
@@ -47,7 +45,7 @@ public class Teacher extends User {
                 .subject(subject)
                 .address(getAddress())
                 .phonenumber(getPhonenumber())
-                .teacherNumber(teacherNumber)
+                .academicID(getAcademicID())
                 .entryYear(getEntryYear())
                 .school(school)
                 .nationality(getNationality())

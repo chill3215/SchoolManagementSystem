@@ -3,6 +3,7 @@ package com.lechi.managementsystem.Model.Dto;
 
 import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -34,7 +35,10 @@ public class StudentDTO {
     private String phonenumber;
     private LocalDate dob;
     private Gender gender;
-    private String studentNumber;
+
+    @NotBlank(message = "Academic ID has to be given")
+    @Column(unique = true)
+    private String academicID;
     private int entryYear;
     private String nationality;
 

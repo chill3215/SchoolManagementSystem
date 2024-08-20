@@ -99,8 +99,8 @@
                         </div>
                         <div class="box specify for-teacher" th:if="${user.userRole.toString()=='TEACHER'}">
                             <div class="holder">
-                                <label> Teacher ID:</label>
-                                <div><text th:text="${user.teacherNumber}"></text></div>
+                                <label> Academic ID:</label>
+                                <div><text th:text="${user.academicID}"></text></div>
                             </div>
 
                             <div class="holder">
@@ -131,8 +131,8 @@
                         </div>
                         <div class="box specify for-student" th:if="${user.userRole.toString()=='STUDENT'}">
                             <div class="holder">
-                                <label> Student ID:</label>
-                                <div><text th:text="${user.studentNumber}"></text></div>
+                                <label> Academic ID:</label>
+                                <div><text th:text="${user.academicID}"></text></div>
                             </div>
 
                             <div class="holder">

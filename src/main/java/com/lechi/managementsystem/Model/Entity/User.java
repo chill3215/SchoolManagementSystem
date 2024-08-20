@@ -3,10 +3,7 @@ package com.lechi.managementsystem.Model.Entity;
 import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,6 +34,10 @@ public class User {
     @NotBlank(message = "Email has to be given")
     @Email
     private String email;
+
+    @Column(unique = true)
+    @NotEmpty(message = "Academic ID has to be given")
+    private String academicID;
 
     private String password;
 

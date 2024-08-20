@@ -3,9 +3,11 @@ package com.lechi.managementsystem.Model.Dto;
 import com.lechi.managementsystem.Model.Entity.Subject;
 import com.lechi.managementsystem.Model.Enum.Gender;
 import com.lechi.managementsystem.Model.Enum.UserRole;
+import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,7 +36,10 @@ public class TeacherDTO {
     private String phonenumber;
     private Gender gender;
     private String address;
-    private String teacherNumber;
+
+    @NotEmpty
+    @Column(unique = true)
+    private String academicID;
     private int entryYear;
     private String nationality;
     private String school;

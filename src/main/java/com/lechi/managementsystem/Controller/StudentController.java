@@ -2,7 +2,6 @@ package com.lechi.managementsystem.Controller;
 
 import com.lechi.managementsystem.Error.UserCannotBeAddedException;
 import com.lechi.managementsystem.Error.UserCannotBeUpdatedException;
-import com.lechi.managementsystem.Error.UserDataNotValidException;
 import com.lechi.managementsystem.Model.Dto.StudentDTO;
 import com.lechi.managementsystem.Model.Entity.Score;
 import com.lechi.managementsystem.Model.Entity.Student;

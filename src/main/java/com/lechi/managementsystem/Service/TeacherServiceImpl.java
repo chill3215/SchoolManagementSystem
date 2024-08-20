@@ -66,6 +66,7 @@ public class TeacherServiceImpl implements TeacherService{
         existingTeacher.setDob(updatedTeacher.getDob());
         existingTeacher.setSubject(updatedTeacher.getSubject());
         existingTeacher.setId(updatedTeacher.getId());
+        existingTeacher.setAcademicID(updatedTeacher.getAcademicID());
         existingTeacher.setQualification(updatedTeacher.getQualification());
         existingTeacher.setPhonenumber(updatedTeacher.getPhonenumber());
         existingTeacher.setEntryYear(updatedTeacher.getEntryYear());

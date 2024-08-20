@@ -26,8 +26,6 @@ public class Student extends User {
 
     private String motherName;
 
-    private String studentNumber;
-
     @ElementCollection
     private List<Score> results;
 
@@ -46,7 +44,7 @@ public class Student extends User {
                 .dob(getDob())
                 .gender(getGender())
                 .phonenumber(getPhonenumber())
-                .studentNumber(studentNumber)
+                .academicID(getAcademicID())
                 .entryYear(getEntryYear())
                 .nationality(getNationality())
                 .build();
