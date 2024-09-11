@@ -81,6 +81,8 @@ public class StudentServiceImpl implements StudentService{
         existingStudent.setAcademicID(updatedStudent.getAcademicID());
         existingStudent.setEntryYear(updatedStudent.getEntryYear());
         existingStudent.setEntryYear(updatedStudent.getEntryYear());
+        existingStudent.setAddress(updatedStudent.getAddress());
+        existingStudent.setNationality(updatedStudent.getNationality());
         studentRepository.save(existingStudent);
     }
 

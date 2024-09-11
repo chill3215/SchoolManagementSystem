@@ -74,6 +74,8 @@ public class TeacherServiceImpl implements TeacherService{
         existingTeacher.setEntryYear(updatedTeacher.getEntryYear());
         existingTeacher.setSchool(updatedTeacher.getSchool());
         existingTeacher.setGender(updatedTeacher.getGender());
+        existingTeacher.setAddress(updatedTeacher.getAddress());
+        existingTeacher.setNationality(updatedTeacher.getNationality());
         teacherRepository.save(existingTeacher);
     }
 
